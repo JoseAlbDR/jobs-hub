@@ -30,7 +30,11 @@ const CreateJobForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <CustomFormField control={form.control} name="username" />
+        <CustomFormField
+          control={form.control}
+          name="username"
+          label="nombre de usuario"
+        />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
