@@ -1,41 +1,87 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Form } from './ui/form';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
-import { CustomFormField } from './FormComponents';
+'use client';
 
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: 'El nombre de usuario debe de tener al 2 caracteres.',
-  }),
-});
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+
+import {
+  JobStatus,
+  JobMode,
+  CreateAndEditJobType,
+  createAndEditJobSchema,
+  JobType,
+} from '@/utils/types';
+
+import { Button } from '@/components/ui/button';
+import { Form } from '@/components/ui/form';
+
+import { CustomFormField, CustomFormSelect } from './FormComponents';
 
 const CreateJobForm = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<CreateAndEditJobType>({
+    resolver: zodResolver(createAndEditJobSchema),
     defaultValues: {
-      username: '',
+      position: '',
+      company: '',
+      location: '',
+      link: '',
+      status: JobStatus.Pending,
+      mode: JobMode.FullTime,
+      type: JobType.Remote,
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+  const onSubmit = (values: CreateAndEditJobType) => {
+    console.log({ values });
+  };
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <CustomFormField
-          control={form.control}
-          name="username"
-          label="nombre de usuario"
-        />
-        <Button type="submit">Submit</Button>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="bg-muted p-8 rounded"
+      >
+        <h2 className="capitalize font-semibold text-4xl mb-6">
+          añadir trabajo
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
+          <CustomFormField
+            name="position"
+            control={form.control}
+            label="puesto"
+          />
+          <CustomFormField
+            name="company"
+            control={form.control}
+            label="empresa"
+          />
+          <CustomFormField
+            name="location"
+            control={form.control}
+            label="ubicacion"
+          />
+          <CustomFormField name="link" control={form.control} label="URL" />
+          <CustomFormSelect
+            name="status"
+            control={form.control}
+            label="estado"
+            items={Object.values(JobStatus)}
+          />
+          <CustomFormSelect
+            name="mode"
+            control={form.control}
+            label="jornada"
+            items={Object.values(JobMode)}
+          />
+          <CustomFormSelect
+            name="type"
+            control={form.control}
+            label="tipo"
+            items={Object.values(JobType)}
+          />
+          <Button type="submit" className="self-end capitalize">
+            añadir trabajo
+          </Button>
+        </div>
       </form>
     </Form>
   );

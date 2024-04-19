@@ -8,9 +8,10 @@ export type JobData = {
   position: string;
   company: string;
   location: string;
+  link: string;
   status: string;
   mode: string;
-  link: string;
+  type: string;
 };
 
 export enum JobStatus {
@@ -20,8 +21,8 @@ export enum JobStatus {
 }
 
 export enum JobMode {
-  FullTime = 'jornada-completa',
-  PartTime = 'jornada-parcial',
+  FullTime = 'completa',
+  PartTime = 'parcial',
   Internship = 'practicas',
 }
 
@@ -31,20 +32,20 @@ export enum JobType {
   Hybrid = 'hibrido',
 }
 
-export const createdAndEditJobSchema = z.object({
+export const createAndEditJobSchema = z.object({
   position: z
     .string()
-    .min(2, { message: 'el puesto debe de tener al menos 2 caracteres' }),
+    .min(2, { message: 'El puesto debe de tener al menos 2 caracteres' }),
   company: z.string().min(2, {
-    message: 'el nombre de la empresa debe de tener al menos 2 caracteres',
+    message: 'El nombre de la empresa debe de tener al menos 2 caracteres',
   }),
   location: z.string().min(2, {
-    message: 'la ubicación debe de tener al menos 2 caracteres',
+    message: 'La ubicación debe de tener al menos 2 caracteres',
   }),
-  link: z.string().url('la url no es válida'),
+  link: z.string().url('La url no es válida'),
   status: z.nativeEnum(JobStatus),
   mode: z.nativeEnum(JobMode),
   type: z.nativeEnum(JobType),
 });
 
-export type CreateAndEditJobType = z.infer<typeof createdAndEditJobSchema>;
+export type CreateAndEditJobType = z.infer<typeof createAndEditJobSchema>;

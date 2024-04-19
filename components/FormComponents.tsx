@@ -7,8 +7,13 @@ import {
   FormMessage,
 } from './ui/form';
 import { Input } from './ui/input';
-import { Select, SelectItem, SelectTrigger } from './ui/select';
-import { SelectContent, SelectValue } from '@radix-ui/react-select';
+import {
+  Select,
+  SelectItem,
+  SelectTrigger,
+  SelectContent,
+  SelectValue,
+} from './ui/select';
 
 type CustomFormFieldProps = {
   name: string;
@@ -42,14 +47,14 @@ type CustomFormSelectProps = {
   name: string;
   control: Control<any>;
   items: string[];
-  labelText: string;
+  label: string;
 };
 
 export const CustomFormSelect = ({
   name,
   control,
   items,
-  labelText,
+  label,
 }: CustomFormSelectProps) => {
   return (
     <FormField
@@ -57,11 +62,11 @@ export const CustomFormSelect = ({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="capitalize">{labelText}</FormLabel>
+          <FormLabel className="capitalize">{label}</FormLabel>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
               <SelectTrigger>
-                <SelectValue />
+                <SelectValue className="capitalize" />
               </SelectTrigger>
             </FormControl>
             <SelectContent>
