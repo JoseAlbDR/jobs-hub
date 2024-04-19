@@ -1,12 +1,22 @@
 'use client';
-import Logo from '@/assets/horizontal-black.svg';
+import LightLogo from '@/assets/horizontal-black.svg';
+import DarkLogo from '@/assets/horizontal-white.svg';
 import links from '@/utils/links';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from './ui/button';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 const Sidebar = () => {
+  const { theme } = useTheme();
+
+  console.log({ theme });
+
+  const Logo = theme === 'light' ? LightLogo : DarkLogo;
+
+  console.log({ Logo });
+
   const pathname = usePathname();
   return (
     <aside className="py-4 px-8 bg-muted h-full">
