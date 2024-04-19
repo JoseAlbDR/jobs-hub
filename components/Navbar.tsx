@@ -8,7 +8,7 @@ const Navbar = () => {
       <LinksDropdown />
       <div className="flex items-center gap-x-4">
         <ThemeToggle />
-        <UserButton />
+        <UserButton afterSignOutUrl="/" />
       </div>
     </nav>
   );
