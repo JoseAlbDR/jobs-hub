@@ -11,16 +11,17 @@ import { useTheme } from 'next-themes';
 const Sidebar = () => {
   const { theme } = useTheme();
 
-  console.log({ theme });
-
   const Logo = theme === 'light' ? LightLogo : DarkLogo;
-
-  console.log({ Logo });
 
   const pathname = usePathname();
   return (
     <aside className="py-4 px-8 bg-muted h-full">
-      <Image src={Logo} alt="app logo" className="mx-auto -mt-16" />
+      <Image
+        src={theme ? Logo : LightLogo}
+        alt="app logo"
+        className="mx-auto -mt-16"
+        priority
+      />
       <div className="flex flex-col mt-20 gap-y-4 items-center content-center">
         {links.map((link) => {
           return (
