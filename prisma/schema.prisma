@@ -16,10 +16,10 @@ datasource db {
 
 model Job {
   id        String   @id @default(uuid())
-  clerkId   String
+  userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  postition String
+  position  String
   company   String
   location  String
   link      String
