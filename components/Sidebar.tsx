@@ -1,5 +1,5 @@
 'use client';
-import Logo from '@/assets/logo.svg';
+import Logo from '@/assets/horizontal-black.svg';
 import links from '@/utils/links';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -11,13 +11,14 @@ const Sidebar = () => {
   return (
     <aside className="py-4 px-8 bg-muted h-full">
       <Image src={Logo} alt="app logo" className="mx-auto" />
-      <div className="flex flex-col mt-20 gap-y-4">
+      <div className="flex flex-col mt-20 gap-y-4 items-center content-center">
         {links.map((link) => {
           return (
             <Button
               asChild
               key={link.href}
               variant={pathname === link.href ? 'default' : 'link'}
+              className="w-48"
             >
               <Link href={link.href} className="flex items-center gap-x-2">
                 {link.icon} <span className="capitalize">{link.label}</span>

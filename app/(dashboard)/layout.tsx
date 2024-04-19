@@ -5,7 +5,7 @@ import { PropsWithChildren } from 'react';
 const layout = ({ children }: PropsWithChildren) => {
   return (
     <main className="grid lg:grid-cols-5">
-      <div className="hidden lg:block lg:col-span-1 lg:min-h-screen">
+      <div className="hidden w-[200px] lg:block lg:col-span-1 lg:min-h-screen">
         <Sidebar />
       </div>
       <div className="lg:col-span-4">
