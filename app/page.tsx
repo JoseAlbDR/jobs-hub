@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Logo from '../assets/logo.svg';
+import Logo from '../assets/horizontal-black.svg';
 import LandingImg from '../assets/main.svg';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -7,7 +7,13 @@ export default function Home() {
   return (
     <main>
       <header className="max-w-6xl mx-auto px-4 sm:px-8 py-6">
-        <Image src={Logo} alt="app logo" />
+        <Image
+          src={Logo}
+          alt="app logo"
+          className="-my-24"
+          width={250}
+          height={100}
+        />
       </header>
       <section className="max-w-6xl mx-auto px-4 sm:px-8 h-screen -mt-20 grid lg:grid-cols-[1fr,400px] items-center">
         <div>
