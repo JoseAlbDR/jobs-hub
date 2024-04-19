@@ -4,8 +4,8 @@ import { PropsWithChildren } from 'react';
 
 const layout = ({ children }: PropsWithChildren) => {
   return (
-    <main className="grid lg:grid-cols-5">
-      <div className="hidden w-[200px] lg:block lg:col-span-1 lg:min-h-screen">
+    <main className="grid lg:grid-cols-[200px,repeat(4,1fr)]">
+      <div className="hidden lg:block lg:col-span-1 lg:min-h-screen">
         <Sidebar />
       </div>
       <div className="lg:col-span-4">
