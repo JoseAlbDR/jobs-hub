@@ -2,16 +2,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from './ui/form';
+import { Form } from './ui/form';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
+import { CustomFormField } from './FormComponents';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -36,19 +30,7 @@ const CreateJobForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Nombre de usuario</FormLabel>
-              <FormControl>
-                <Input placeholder="shacdn" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <CustomFormField control={form.control} name="username" />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
