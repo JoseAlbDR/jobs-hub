@@ -43,7 +43,9 @@ const JobCard = ({ job }: { job: JobData }) => {
             <JobInfo icon={<RadioTower />} text={job.status} />
           </Badge>
         </div>
-        {job?.note && <JobInfo icon={<NotebookText />} text={job.note} />}
+        {job?.note && (
+          <JobInfo icon={<NotebookText />} text={job.note} truncate />
+        )}
       </CardContent>
       <Separator />
       <CardFooter className="flex gap-4">
