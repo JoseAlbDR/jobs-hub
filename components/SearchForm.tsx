@@ -46,6 +46,11 @@ const SearchForm = () => {
     resetParams.set('type', 'todos');
     resetParams.set('status', 'todos');
 
+    form.setValue('search', '');
+    form.setValue('mode', JobMode.All);
+    form.setValue('type', JobType.All);
+    form.setValue('status', JobStatus.All);
+
     router.push(`${pathname}?${resetParams.toString()}`);
   };
 
