@@ -14,27 +14,31 @@ import {
   SelectContent,
   SelectValue,
 } from './ui/select';
+import { Textarea } from './ui/textarea';
 
 type CustomFormFieldProps = {
   name: string;
   control: Control<any>;
   label: string;
+  type?: 'input' | 'area';
 };
 
 export const CustomFormField = ({
   control,
   name,
   label,
+  type = 'input',
 }: CustomFormFieldProps) => {
+  console.log({ type });
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={`${type === 'area' && 'col-span-2'}`}>
           <FormLabel className="capitalize">{label}</FormLabel>
           <FormControl>
-            <Input {...field} />
+            {type === 'input' ? <Input {...field} /> : <Textarea {...field} />}
           </FormControl>
           <FormMessage />
         </FormItem>

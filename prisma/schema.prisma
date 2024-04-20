@@ -26,4 +26,5 @@ model Job {
   status    String
   mode      String
   type      String
+  note      String?  @default("")
 }

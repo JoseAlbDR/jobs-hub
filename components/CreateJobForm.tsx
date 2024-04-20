@@ -19,6 +19,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { createJobAction } from '@/utils/actions';
+import { Textarea } from './ui/textarea';
 
 const CreateJobForm = () => {
   const form = useForm<CreateAndEditJobType>({
@@ -106,6 +107,12 @@ const CreateJobForm = () => {
             control={form.control}
             label="tipo"
             items={Object.values(JobType)}
+          />
+          <CustomFormField
+            name="note"
+            control={form.control}
+            label="Nota"
+            type="area"
           />
           <Button
             type="submit"

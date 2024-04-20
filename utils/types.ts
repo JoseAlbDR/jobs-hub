@@ -12,6 +12,7 @@ export type JobData = {
   status: string;
   mode: string;
   type: string;
+  note?: string | null;
 };
 
 export enum JobStatus {
@@ -43,6 +44,10 @@ export const createAndEditJobSchema = z.object({
     message: 'La ubicación debe de tener al menos 2 caracteres',
   }),
   link: z.string().url('La url no es válida'),
+  note: z
+    .string()
+    .min(5, { message: 'La nota debe tener al menos 5 caracteres' })
+    .optional(),
   status: z.nativeEnum(JobStatus),
   mode: z.nativeEnum(JobMode),
   type: z.nativeEnum(JobType),
