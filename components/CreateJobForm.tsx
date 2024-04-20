@@ -15,6 +15,10 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 
 import { CustomFormField, CustomFormSelect } from './FormComponents';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useToast } from './ui/use-toast';
+import { useRouter } from 'next/navigation';
+import { createJobAction } from '@/utils/actions';
 
 const CreateJobForm = () => {
   const form = useForm<CreateAndEditJobType>({
@@ -30,8 +34,33 @@ const CreateJobForm = () => {
     },
   });
 
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
+  const router = useRouter();
+  const { mutate, isPending } = useMutation({
+    mutationFn: (values: CreateAndEditJobType) => createJobAction(values),
+    onSuccess: (data) => {
+      if (!data) {
+        toast({ description: 'Hubo un error creando el trabajo' });
+        return;
+      }
+      toast({ description: 'Trabajo creado' });
+      queryClient.invalidateQueries({
+        queryKey: ['jobs'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['stats'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['charts'],
+      });
+
+      router.push('/jobs');
+    },
+  });
+
   const onSubmit = (values: CreateAndEditJobType) => {
-    console.log({ values });
+    mutate(values);
   };
 
   return (
@@ -78,8 +107,12 @@ const CreateJobForm = () => {
             label="tipo"
             items={Object.values(JobType)}
           />
-          <Button type="submit" className="self-end capitalize">
-            añadir trabajo
+          <Button
+            type="submit"
+            className="self-end capitalize"
+            disabled={isPending}
+          >
+            {isPending ? 'creando' : 'añadir trabajo'}
           </Button>
         </div>
       </form>
