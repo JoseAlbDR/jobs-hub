@@ -56,4 +56,12 @@ export const createAndEditJobSchema = z.object({
   type: z.nativeEnum(JobType),
 });
 
+export const searchFormSchema = z.object({
+  search: z.string().optional(),
+  status: z.nativeEnum(JobStatus),
+  mode: z.nativeEnum(JobMode),
+  type: z.nativeEnum(JobType),
+});
+
 export type CreateAndEditJobType = z.infer<typeof createAndEditJobSchema>;
+export type SearchFormType = z.infer<typeof searchFormSchema>;

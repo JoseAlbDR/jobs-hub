@@ -51,6 +51,7 @@ type CustomFormSelectProps = {
   control: Control<any>;
   items: string[];
   label: string;
+  type?: string;
 };
 
 export const CustomFormSelect = ({
@@ -58,6 +59,7 @@ export const CustomFormSelect = ({
   control,
   items,
   label,
+  type = 'create',
 }: CustomFormSelectProps) => {
   return (
     <FormField
@@ -73,13 +75,19 @@ export const CustomFormSelect = ({
               </SelectTrigger>
             </FormControl>
             <SelectContent>
-              {items.map((item) => {
-                return (
+              {items.map((item) =>
+                type === 'search' ? (
                   <SelectItem key={item} value={item}>
                     {item}
                   </SelectItem>
-                );
-              })}
+                ) : (
+                  item !== 'todos' && (
+                    <SelectItem key={item} value={item}>
+                      {item}
+                    </SelectItem>
+                  )
+                )
+              )}
             </SelectContent>
           </Select>
           <FormMessage />

@@ -36,18 +36,18 @@ export const createJobAction = async (
 
 type GetAllJobsActionTypes = {
   search?: string;
-  jobStatus?: JobStatus;
-  jobMode?: JobMode;
-  jobType?: JobType;
+  status?: JobStatus;
+  mode?: JobMode;
+  type?: JobType;
   limit?: number;
   page?: number;
 };
 
 export const getAllJobsAction = async ({
   search,
-  jobStatus,
-  jobMode,
-  jobType,
+  status,
+  mode,
+  type,
   page = 1,
   limit = 10,
 }: GetAllJobsActionTypes): Promise<{
@@ -85,22 +85,22 @@ export const getAllJobsAction = async ({
         ],
       };
 
-    if (jobStatus && jobStatus !== 'todos')
+    if (status && status !== 'todos')
       whereClause = {
         ...whereClause,
-        status: jobStatus,
+        status,
       };
 
-    if (jobMode && jobMode !== 'todos')
+    if (mode && mode !== 'todos')
       whereClause = {
         ...whereClause,
-        mode: jobMode,
+        mode,
       };
 
-    if (jobType && jobType !== 'todos')
+    if (type && type !== 'todos')
       whereClause = {
         ...whereClause,
-        type: jobType,
+        type,
       };
 
     const jobs: JobData[] = await prisma.job.findMany({
