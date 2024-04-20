@@ -16,18 +16,21 @@ export type JobData = {
 };
 
 export enum JobStatus {
+  All = 'todos',
   Pending = 'pendiente',
   Interview = 'entrevista',
   Declined = 'rechazado',
 }
 
 export enum JobMode {
+  All = 'todos',
   FullTime = 'completa',
   PartTime = 'parcial',
   Internship = 'practicas',
 }
 
 export enum JobType {
+  All = 'todos',
   Presential = 'presencial',
   Remote = 'remoto',
   Hybrid = 'hibrido',
