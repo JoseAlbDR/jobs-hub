@@ -22,7 +22,7 @@ model Job {
   position  String
   company   String
   location  String
-  link      String
+  link      String?  @default("")
   status    String
   mode      String
   type      String

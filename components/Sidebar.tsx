@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <aside className="py-4 px-8 bg-muted h-full">
       <Image
-        src={DarkLogo}
+        src={LightLogo}
         alt="app logo"
         className="mx-auto -mt-16"
         priority

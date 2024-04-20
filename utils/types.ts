@@ -8,7 +8,7 @@ export type JobData = {
   position: string;
   company: string;
   location: string;
-  link: string;
+  link?: string | null;
   status: string;
   mode: string;
   type: string;
@@ -39,18 +39,26 @@ export enum JobType {
 export const createAndEditJobSchema = z.object({
   position: z
     .string()
-    .min(2, { message: 'El puesto debe de tener al menos 2 caracteres' }),
-  company: z.string().min(2, {
-    message: 'El nombre de la empresa debe de tener al menos 2 caracteres',
-  }),
-  location: z.string().min(2, {
-    message: 'La ubicación debe de tener al menos 2 caracteres',
-  }),
-  link: z.string().url('La url no es válida'),
+    .min(2, { message: 'El puesto debe de tener al menos 2 caracteres' })
+    .transform((value) => value.toLowerCase()),
+  company: z
+    .string()
+    .min(2, {
+      message: 'El nombre de la empresa debe de tener al menos 2 caracteres',
+    })
+    .transform((value) => value.toLowerCase()),
+  location: z
+    .string()
+    .min(2, {
+      message: 'La ubicación debe de tener al menos 2 caracteres',
+    })
+    .transform((value) => value.toLowerCase()),
+  link: z.string().url('La url no es válida').optional().or(z.literal('')),
   note: z
     .string()
     .min(5, { message: 'La nota debe tener al menos 5 caracteres' })
-    .optional(),
+    .optional()
+    .or(z.literal('')),
   status: z.nativeEnum(JobStatus),
   mode: z.nativeEnum(JobMode),
   type: z.nativeEnum(JobType),
