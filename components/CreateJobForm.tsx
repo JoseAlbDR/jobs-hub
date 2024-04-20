@@ -19,7 +19,6 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { createJobAction } from '@/utils/actions';
-import { Textarea } from './ui/textarea';
 
 const CreateJobForm = () => {
   const form = useForm<CreateAndEditJobType>({

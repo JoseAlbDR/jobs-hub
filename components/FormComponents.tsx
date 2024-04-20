@@ -29,7 +29,6 @@ export const CustomFormField = ({
   label,
   type = 'input',
 }: CustomFormFieldProps) => {
-  console.log({ type });
   return (
     <FormField
       control={control}
