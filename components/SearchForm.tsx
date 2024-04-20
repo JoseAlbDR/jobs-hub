@@ -39,6 +39,16 @@ const SearchForm = () => {
     router.push(`${pathname}?${newParams.toString()}`);
   };
 
+  const handleResetForm = () => {
+    const resetParams = new URLSearchParams();
+    form.reset();
+    resetParams.set('mode', 'todos');
+    resetParams.set('type', 'todos');
+    resetParams.set('status', 'todos');
+
+    router.push(`${pathname}?${resetParams.toString()}`);
+  };
+
   return (
     <Form {...form}>
       <form
@@ -75,6 +85,14 @@ const SearchForm = () => {
           />
           <Button type="submit" className="capitalize self-end">
             Buscar
+          </Button>
+          <Button
+            type="reset"
+            className="capitalize self-end"
+            variant="outline"
+            onClick={handleResetForm}
+          >
+            Reset
           </Button>
         </div>
       </form>

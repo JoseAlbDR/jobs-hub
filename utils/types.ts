@@ -9,7 +9,7 @@ export type JobData = {
   company: string;
   location: string;
   link?: string | null;
-  status: string;
+  status: 'pendiente' | 'entrevista' | 'rechazado';
   mode: string;
   type: string;
   note?: string | null;
