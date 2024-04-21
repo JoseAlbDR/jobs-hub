@@ -26,10 +26,14 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
           description: 'Hubo un error borrando el trabajo',
           variant: 'destructive',
         });
+        return;
       }
       toast({ description: 'Trabajo borrado' });
       queryClient.invalidateQueries({
         queryKey: ['jobs'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['job', data.id],
       });
       queryClient.invalidateQueries({
         queryKey: ['stats'],

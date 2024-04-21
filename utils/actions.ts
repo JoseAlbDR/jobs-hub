@@ -43,6 +43,30 @@ export const createJobAction = async (
   }
 };
 
+export const updateJobAction = async (
+  id: string,
+  values: CreateAndEditJobType
+): Promise<JobData | null> => {
+  const userId = authenticateAndRedirect();
+
+  try {
+    const job = await prisma.job.update({
+      where: { id, userId },
+      data: {
+        ...values,
+        status: values.status as 'pendiente' | 'entrevista' | 'rechazado',
+        position: values.position.toLowerCase(),
+        company: values.company.toLowerCase(),
+        location: values.location.toLowerCase(),
+      },
+    });
+    return job;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
 export const deleteJobAction = async (id: string): Promise<JobData | null> => {
   const userId = authenticateAndRedirect();
 
