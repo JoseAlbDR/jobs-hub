@@ -22,17 +22,17 @@ const Sidebar = () => {
   return (
     <aside className="py-4 px-8 bg-muted h-full">
       <Image src={logo} alt="app logo" className="mx-auto -mt-16" priority />
-      <div className="flex flex-col mt-20 gap-y-4 items-center content-center">
+      <div className="flex flex-col mt-20 gap-y-4 items-center justify-start">
         {links.map((link) => {
           return (
             <Button
               asChild
               key={link.href}
               variant={pathname === link.href ? 'default' : 'link'}
-              className="w-48"
+              className="w-48 flex justify-start"
             >
-              <Link href={link.href} className="flex items-center gap-x-2">
-                {link.icon} <span className="capitalize">{link.label}</span>
+              <Link href={link.href} className="flex justify-start gap-x-2">
+                {link.icon} <span className="capitalize text-foreground">{link.label}</span>
               </Link>
             </Button>
           );
