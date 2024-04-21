@@ -15,16 +15,22 @@ datasource db {
 }
 
 model Job {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   userId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   position  String
   company   String
   location  String
-  link      String?  @default("")
-  status    String
+  link      String?   @default("")
+  status    JobStatus
   mode      String
   type      String
-  note      String?  @default("")
+  note      String?   @default("")
+}
+
+enum JobStatus {
+  pendiente
+  entrevista
+  rechazado
 }

@@ -16,6 +16,7 @@ import {
   Briefcase,
   CalendarDays,
   Car,
+  LinkIcon,
   MapPin,
   NotebookText,
   RadioTower,
@@ -33,23 +34,33 @@ const JobCard = ({ job }: { job: JobData }) => {
         <CardDescription className="capitalize">{job.company}</CardDescription>
       </CardHeader>
       <Separator />
-      <CardContent className="flex gap-2 flex-col flex-1">
+      <CardContent className="flex gap-2 flex-col flex-1 pt-6">
         <div className="flex flex-wrap gap-3 items-center justify-between">
           <JobInfo icon={<Briefcase />} text={job.mode} />
           <JobInfo icon={<MapPin />} text={job.location} />
           <JobInfo icon={<CalendarDays />} text={date} />
+          {job.link && (
+            <a
+              href={job.link}
+              target="_blank"
+              className="flex items-center justify-center gap-1"
+            >
+              <LinkIcon />{' '}
+              <span className="capitalize">{job.link.split('.').at(1)}</span>
+            </a>
+          )}
           <JobInfo icon={<Car />} text={job.type} />
-          <Badge className="w-32 justify-center" variant={job.status}>
-            <JobInfo icon={<RadioTower />} text={job.status} />
-          </Badge>
         </div>
+        <Badge className="w-32 justify-center" variant={job.status}>
+          <JobInfo icon={<RadioTower />} text={job.status} />
+        </Badge>
         {job?.note && (
           <JobInfo icon={<NotebookText />} text={job.note} truncate />
         )}
       </CardContent>
       <Separator />
       <CardFooter className="flex gap-4">
-        <Button asChild size="sm">
+        <Button asChild>
           <Link href={`/jobs/${job.id}`}>Editar</Link>
         </Button>
         <DeleteJobBtn />

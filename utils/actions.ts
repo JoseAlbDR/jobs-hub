@@ -29,6 +29,7 @@ export const createJobAction = async (
     const job = await prisma.job.create({
       data: {
         ...values,
+        status: values.status as 'pendiente' | 'entrevista' | 'rechazado',
         position: values.position.toLowerCase(),
         company: values.company.toLowerCase(),
         location: values.location.toLowerCase(),

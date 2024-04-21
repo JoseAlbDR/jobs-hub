@@ -1,7 +1,8 @@
 import React from 'react';
+import { Button } from './ui/button';
 
 const DeleteJobBtn = () => {
-  return <div>DeleteJobBtn</div>;
+  return <Button variant="destructive">Borrar</Button>;
 };
 
 export default DeleteJobBtn;
