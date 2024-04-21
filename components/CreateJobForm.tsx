@@ -41,7 +41,10 @@ const CreateJobForm = () => {
     mutationFn: (values: CreateAndEditJobType) => createJobAction(values),
     onSuccess: (data) => {
       if (!data) {
-        toast({ description: 'Hubo un error creando el trabajo' });
+        toast({
+          description: 'Hubo un error creando el trabajo',
+          variant: 'destructive',
+        });
         return;
       }
       toast({ description: 'Trabajo creado' });

@@ -22,7 +22,10 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
     mutationFn: (id: string) => deleteJobAction(id),
     onSuccess: (data) => {
       if (!data) {
-        toast({ description: 'Hubo un error borrando el trabajo' });
+        toast({
+          description: 'Hubo un error borrando el trabajo',
+          variant: 'destructive',
+        });
       }
       toast({ description: 'Trabajo borrado' });
       queryClient.invalidateQueries({
@@ -44,7 +47,9 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">Borrar</Button>
+        <Button variant="destructive" disabled={isPending}>
+          Borrar
+        </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
