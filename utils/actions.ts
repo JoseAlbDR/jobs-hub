@@ -1,6 +1,7 @@
 'use server';
 
 import { auth } from '@clerk/nextjs';
+import dayjs from 'dayjs';
 import { redirect } from 'next/navigation';
 import {
   CreateAndEditJobType,
@@ -209,6 +210,44 @@ export const getStatsAction = async (): Promise<{
 
     return defaultStats;
   } catch (error) {
+    console.log(error);
+    redirect('/jobs');
+  }
+};
+
+export const getChatsDataAction = async (): Promise<
+  Array<{ date: string; count: number }>
+> => {
+  const userId = authenticateAndRedirect();
+
+  const sixMontAgo = dayjs().subtract(6, 'month').toDate();
+
+  try {
+    const jobs = await prisma.job.findMany({
+      where: {
+        userId,
+        createdAt: {
+          gte: sixMontAgo,
+        },
+      },
+      orderBy: {
+        createdAt: 'asc',
+      },
+    });
+
+    let applicationsPerMonth = jobs.reduce((acc, job) => {
+      const date = dayjs(job.createdAt).format('MMM YY');
+      const existingEntry = acc.find((entry) => entry.date === date);
+
+      if (existingEntry) existingEntry.count += 1;
+      else acc.push({ date, count: 1 });
+
+      return acc;
+    }, [] as Array<{ date: string; count: number }>);
+
+    return applicationsPerMonth;
+  } catch (error) {
+    console.log(error);
     redirect('/jobs');
   }
 };
