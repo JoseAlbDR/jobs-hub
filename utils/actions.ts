@@ -114,17 +114,17 @@ export const getAllJobsAction = async ({
         OR: [
           {
             position: {
-              contains: search,
+              contains: search.toLowerCase(),
             },
           },
           {
             company: {
-              contains: search,
+              contains: search.toLowerCase(),
             },
           },
           {
             location: {
-              contains: search,
+              contains: search.toLowerCase(),
             },
           },
         ],
