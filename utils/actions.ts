@@ -102,6 +102,7 @@ export const getAllJobsAction = async ({
   page: number;
   totalPages: number;
 }> => {
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   const userId = authenticateAndRedirect();
 
   try {
