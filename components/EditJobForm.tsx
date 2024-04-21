@@ -21,7 +21,7 @@ import { useRouter } from 'next/navigation';
 import { getSingleJobAction, updateJobAction } from '@/utils/actions';
 
 const EditJobForm = ({ jobId }: { jobId: string }) => {
-  const { data, isPending: isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['job', jobId],
     queryFn: () => getSingleJobAction(jobId),
   });
@@ -62,7 +62,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
         queryKey: ['job', jobId],
       });
       queryClient.invalidateQueries({
-        queryKey: ['charts'],
+        queryKey: ['stats'],
       });
 
       router.push('/jobs');
