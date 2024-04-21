@@ -22,10 +22,10 @@ const JobsList = () => {
 
   const jobs = data?.jobs || [];
 
-  if (isPending) return <h2 className="text-xl">Cargando...</h2>;
+  if (isPending) return <h2 className="text-xl mt-8">Cargando...</h2>;
 
   if (jobs.length < 1)
-    return <h2 className="text-xl">No se han encontrado trabajos</h2>;
+    return <h2 className="text-xl mt-8">No se han encontrado trabajos</h2>;
 
   return (
     <>

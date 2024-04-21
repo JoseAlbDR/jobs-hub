@@ -43,6 +43,18 @@ export const createJobAction = async (
   }
 };
 
+export const deleteJobAction = async (id: string): Promise<JobData | null> => {
+  const userId = authenticateAndRedirect();
+
+  try {
+    const job: JobData = await prisma.job.delete({ where: { id, userId } });
+    return job;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
 type GetAllJobsActionTypes = {
   search?: string;
   status?: JobStatus;
