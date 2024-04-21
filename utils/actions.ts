@@ -179,9 +179,9 @@ export const getSingleJobAction = async (
 };
 
 export const getStatsAction = async (): Promise<{
-  pending: number;
-  interview: number;
-  declined: number;
+  pendiente: number;
+  entrevista: number;
+  rechazado: number;
 }> => {
   const userId = authenticateAndRedirect();
 
@@ -202,9 +202,9 @@ export const getStatsAction = async (): Promise<{
     }, {} as Record<string, number>);
 
     const defaultStats = {
-      pending: 0,
-      declined: 0,
-      interview: 0,
+      pendiente: 0,
+      entrevista: 0,
+      rechazado: 0,
       ...statsObject,
     };
 
@@ -215,7 +215,7 @@ export const getStatsAction = async (): Promise<{
   }
 };
 
-export const getChatsDataAction = async (): Promise<
+export const getChartsDataAction = async (): Promise<
   Array<{ date: string; count: number }>
 > => {
   const userId = authenticateAndRedirect();
