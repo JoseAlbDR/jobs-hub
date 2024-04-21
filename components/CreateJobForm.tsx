@@ -28,9 +28,9 @@ const CreateJobForm = () => {
       company: '',
       location: '',
       link: '',
-      status: JobStatus.All,
-      mode: JobMode.All,
-      type: JobType.All,
+      status: JobStatus.Pending,
+      mode: JobMode.FullTime,
+      type: JobType.Presential,
     },
   });
 

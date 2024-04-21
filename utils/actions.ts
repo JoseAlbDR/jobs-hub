@@ -26,7 +26,15 @@ export const createJobAction = async (
   const userId = authenticateAndRedirect();
   try {
     createAndEditJobSchema.parse(values);
-    const job = await prisma.job.create({ data: { ...values, userId } });
+    const job = await prisma.job.create({
+      data: {
+        ...values,
+        position: values.position.toLowerCase(),
+        company: values.company.toLowerCase(),
+        location: values.location.toLowerCase(),
+        userId,
+      },
+    });
     return job;
   } catch (error) {
     console.log(error);

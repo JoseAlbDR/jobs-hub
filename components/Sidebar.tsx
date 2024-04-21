@@ -7,21 +7,21 @@ import { usePathname } from 'next/navigation';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const Sidebar = () => {
+  const [logo, setLogo] = useState(DarkLogo);
   const { theme } = useTheme();
 
-  const Logo = theme === 'light' ? LightLogo : DarkLogo;
-
   const pathname = usePathname();
+
+  useEffect(() => {
+    setLogo(theme === 'light' ? LightLogo : DarkLogo);
+  }, [theme]);
+
   return (
     <aside className="py-4 px-8 bg-muted h-full">
-      <Image
-        src={DarkLogo}
-        alt="app logo"
-        className="mx-auto -mt-16"
-        priority
-      />
+      <Image src={logo} alt="app logo" className="mx-auto -mt-16" priority />
       <div className="flex flex-col mt-20 gap-y-4 items-center content-center">
         {links.map((link) => {
           return (
