@@ -137,3 +137,18 @@ export const getAllJobsAction = async ({
     return { jobs: [], count: 0, page: 1, totalPages: 0 };
   }
 };
+
+export const getSingleJobAction = async (
+  id: string
+): Promise<JobData | null> => {
+  const userId = authenticateAndRedirect();
+  let job: JobData | null = null;
+  try {
+    job = await prisma.job.findUnique({ where: { id, userId } });
+  } catch (error) {
+    console.log(error);
+  }
+  if (!job) redirect('/jobs');
+
+  return job;
+};
