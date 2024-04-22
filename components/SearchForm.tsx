@@ -1,5 +1,6 @@
 'use client';
 import {
+  JobContract,
   JobMode,
   JobStatus,
   JobType,
@@ -26,6 +27,7 @@ const SearchForm = () => {
       mode: (params?.mode as JobMode) || JobMode.All,
       status: (params?.status as JobStatus) || JobStatus.All,
       type: (params?.type as JobType) || JobType.All,
+      contract: (params?.contract as JobContract) || JobContract.All,
     },
   });
 
@@ -45,11 +47,13 @@ const SearchForm = () => {
     resetParams.set('mode', 'todos');
     resetParams.set('type', 'todos');
     resetParams.set('status', 'todos');
+    resetParams.set('contract', 'todos');
 
     form.setValue('search', '');
     form.setValue('mode', JobMode.All);
     form.setValue('type', JobType.All);
     form.setValue('status', JobStatus.All);
+    form.setValue('contract', JobContract.All);
 
     router.push(`${pathname}?${resetParams.toString()}`);
   };
@@ -79,6 +83,13 @@ const SearchForm = () => {
             control={form.control}
             label="jornada"
             items={Object.values(JobMode)}
+            type="search"
+          />
+          <CustomFormSelect
+            name="contract"
+            control={form.control}
+            label="contrato"
+            items={Object.values(JobContract)}
             type="search"
           />
           <CustomFormSelect
