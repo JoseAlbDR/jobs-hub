@@ -12,6 +12,7 @@ export type JobData = {
   status: 'pendiente' | 'entrevista' | 'rechazado';
   mode: string;
   type: string;
+  contract: string;
   note?: string | null;
 };
 
@@ -26,7 +27,14 @@ export enum JobMode {
   All = 'todos',
   FullTime = 'completa',
   PartTime = 'parcial',
+}
+
+export enum JobContract {
+  All = 'todos',
   Internship = 'practicas',
+  Permanent = 'indefinido',
+  Part_Time = 'parcial',
+  Freelance = 'freelance',
 }
 
 export enum JobType {
@@ -62,6 +70,7 @@ export const createAndEditJobSchema = z.object({
   status: z.nativeEnum(JobStatus),
   mode: z.nativeEnum(JobMode),
   type: z.nativeEnum(JobType),
+  contract: z.nativeEnum(JobContract),
 });
 
 export const searchFormSchema = z.object({
@@ -69,6 +78,7 @@ export const searchFormSchema = z.object({
   status: z.nativeEnum(JobStatus),
   mode: z.nativeEnum(JobMode),
   type: z.nativeEnum(JobType),
+  contract: z.nativeEnum(JobContract),
 });
 
 export type CreateAndEditJobType = z.infer<typeof createAndEditJobSchema>;

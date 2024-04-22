@@ -9,6 +9,7 @@ import {
   CreateAndEditJobType,
   createAndEditJobSchema,
   JobType,
+  JobContract,
 } from '@/utils/types';
 
 import { Button } from '@/components/ui/button';
@@ -32,6 +33,7 @@ const CreateJobForm = () => {
       status: JobStatus.Pending,
       mode: JobMode.FullTime,
       type: JobType.Presential,
+      contract: JobContract.Permanent,
     },
   });
 
@@ -120,6 +122,12 @@ const CreateJobForm = () => {
             label="jornada"
             items={Object.values(JobMode)}
             className='w-full'
+          />
+          <CustomFormSelect
+            name="contract"
+            control={form.control}
+            label="contrato"
+            items={Object.values(JobContract)}
           />
           <CustomFormSelect
             name="type"
