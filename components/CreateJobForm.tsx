@@ -123,18 +123,20 @@ const CreateJobForm = () => {
             items={Object.values(JobMode)}
             className='w-full'
           />
-          <CustomFormSelect
-            name="contract"
-            control={form.control}
-            label="contrato"
-            items={Object.values(JobContract)}
-          />
+         
           <CustomFormSelect
             name="type"
             control={form.control}
             label="tipo"
             items={Object.values(JobType)}
             className='w-full'
+          />
+           <CustomFormSelect
+            name="contract"
+            control={form.control}
+            label="contrato"
+            items={Object.values(JobContract)}
+             className='w-full'
           />
             
          </section>
@@ -154,7 +156,7 @@ const CreateJobForm = () => {
          <footer className='flex justify-end'>
           <Button
             type="submit"
-            className="self-end capitalize bg-primary-accent font-medium text-lg rounded-sm font-sans gap-2"
+            className="self-end capitalize bg-primary-accent font-medium text-lg rounded-sm font-sans gap-2 text-black"
             disabled={isPending}
             
           >
