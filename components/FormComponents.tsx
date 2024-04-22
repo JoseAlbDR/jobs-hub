@@ -21,6 +21,7 @@ type CustomFormFieldProps = {
   control: Control<any>;
   label: string;
   type?: 'input' | 'area';
+  className?: string;
 };
 
 export const CustomFormField = ({
@@ -28,13 +29,14 @@ export const CustomFormField = ({
   name,
   label,
   type = 'input',
+  className = '',
 }: CustomFormFieldProps) => {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem className={`${type === 'area' && 'col-span-2'}`}>
+        <FormItem className={`${type === 'area' && 'col-span-2'} ${className}`}>
           <FormLabel className="capitalize">{label}</FormLabel>
           <FormControl>
             {type === 'input' ? <Input {...field} /> : <Textarea {...field} />}
@@ -52,6 +54,7 @@ type CustomFormSelectProps = {
   items: string[];
   label: string;
   type?: string;
+  className?:string;
 };
 
 export const CustomFormSelect = ({
@@ -60,13 +63,14 @@ export const CustomFormSelect = ({
   items,
   label,
   type = 'create',
+  className = ''
 }: CustomFormSelectProps) => {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={`${className}`}>
           <FormLabel className="capitalize">{label}</FormLabel>
           <Select onValueChange={field.onChange} value={field.value}>
             <FormControl>
