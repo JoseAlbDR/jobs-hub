@@ -2,9 +2,8 @@
 import { getAllJobsAction } from '@/utils/actions';
 import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
-import { JobMode, JobStatus, JobType } from '../utils/types';
 import JobCard from './JobCard';
-import ButtonContainer from './ButtonContainer';
+import ComplexButtonContainer from './ComplexButtonContainer';
 import { getParamsFromUrl } from '@/utils/getParamsFromUrl';
 import JobLoadingCard from './JobLoadingCard';
 import { Skeleton } from './ui/skeleton';
@@ -30,7 +29,10 @@ const JobsList = () => {
   if (isPending)
     return (
       <>
-        <Skeleton className="text-xl font-semibold capitalize mt-4 h-[25px] w-[250px]" />
+        <div className="flex items-center justify-between">
+          <Skeleton className="text-xl font-semibold capitalize mt-4 h-[25px] w-[250px]" />
+          <Skeleton className="mt-4 h-[36px] w-[450px]" />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 mt-8">
           <JobLoadingCard />
           <JobLoadingCard />
@@ -50,7 +52,7 @@ const JobsList = () => {
           {count} trabajos encontrados
         </h2>
         {totalPages < 2 ? null : (
-          <ButtonContainer currentPage={page} totalPages={totalPages} />
+          <ComplexButtonContainer currentPage={page} totalPages={totalPages} />
         )}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 mt-8">
