@@ -15,22 +15,28 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 
 import { CustomFormField, CustomFormSelect } from './FormComponents';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
-import { createJobAction } from '@/utils/actions';
+import { getSingleJobAction, updateJobAction } from '@/utils/actions';
 
-const CreateJobForm = () => {
+const EditJobForm = ({ jobId }: { jobId: string }) => {
+  const { data } = useQuery({
+    queryKey: ['job', jobId],
+    queryFn: () => getSingleJobAction(jobId),
+  });
+
   const form = useForm<CreateAndEditJobType>({
     resolver: zodResolver(createAndEditJobSchema),
     defaultValues: {
-      position: '',
-      company: '',
-      location: '',
-      link: '',
-      status: JobStatus.Pending,
-      mode: JobMode.FullTime,
-      type: JobType.Presential,
+      position: data?.position || '',
+      company: data?.company || '',
+      location: data?.location || '',
+      link: data?.link || '',
+      status: (data?.status as JobStatus) || JobStatus.Pending,
+      mode: (data?.mode as JobMode) || JobMode.FullTime,
+      type: (data?.type as JobType) || JobType.Presential,
+      note: data?.note || '',
     },
   });
 
@@ -38,24 +44,25 @@ const CreateJobForm = () => {
   const { toast } = useToast();
   const router = useRouter();
   const { mutate, isPending } = useMutation({
-    mutationFn: (values: CreateAndEditJobType) => createJobAction(values),
+    mutationFn: (values: CreateAndEditJobType) =>
+      updateJobAction(jobId, values),
     onSuccess: (data) => {
       if (!data) {
         toast({
-          description: 'Hubo un error creando el trabajo',
+          description: 'Hubo un error actualiando el trabajo',
           variant: 'destructive',
         });
         return;
       }
-      toast({ description: 'Trabajo creado' });
+      toast({ description: 'Trabajo actualizado' });
       queryClient.invalidateQueries({
         queryKey: ['jobs'],
       });
       queryClient.invalidateQueries({
-        queryKey: ['stats'],
+        queryKey: ['job', jobId],
       });
       queryClient.invalidateQueries({
-        queryKey: ['charts'],
+        queryKey: ['stats'],
       });
 
       router.push('/jobs');
@@ -73,7 +80,7 @@ const CreateJobForm = () => {
         className="bg-muted p-8 rounded"
       >
         <h2 className="capitalize font-semibold text-4xl mb-6">
-          añadir trabajo
+          actualizar trabajo
         </h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
           <CustomFormField
@@ -121,7 +128,7 @@ const CreateJobForm = () => {
             className="self-end capitalize"
             disabled={isPending}
           >
-            {isPending ? 'creando' : 'añadir trabajo'}
+            {isPending ? 'actualizando' : 'actualizar trabajo'}
           </Button>
         </div>
       </form>
@@ -129,4 +136,4 @@ const CreateJobForm = () => {
   );
 };
 
-export default CreateJobForm;
+export default EditJobForm;
