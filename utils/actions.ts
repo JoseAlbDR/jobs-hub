@@ -23,7 +23,6 @@ const authenticateAndRedirect = (): string => {
 export const createJobAction = async (
   values: CreateAndEditJobType
 ): Promise<JobData | null> => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   const userId = authenticateAndRedirect();
   try {
     createAndEditJobSchema.parse(values);
@@ -102,7 +101,6 @@ export const getAllJobsAction = async ({
   page: number;
   totalPages: number;
 }> => {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
   const userId = authenticateAndRedirect();
 
   try {
