@@ -72,21 +72,21 @@ export const CustomFormSelect = ({
       render={({ field }) => (
         <FormItem className={`${className}`}>
           <FormLabel className="capitalize">{label}</FormLabel>
-          <Select onValueChange={field.onChange} value={field.value}>
+          <Select onValueChange={field.onChange} value={field.value} >
             <FormControl>
-              <SelectTrigger>
-                <SelectValue className="capitalize" />
+              <SelectTrigger className='capitalize'>
+                <SelectValue  />
               </SelectTrigger>
             </FormControl>
             <SelectContent>
               {items.map((item) =>
                 type === 'search' ? (
-                  <SelectItem key={item} value={item}>
+                  <SelectItem key={item} value={item} className='capitalize'>
                     {item}
                   </SelectItem>
                 ) : (
                   item !== 'todos' && (
-                    <SelectItem key={item} value={item}>
+                    <SelectItem key={item} value={item} className='capitalize'>
                       {item}
                     </SelectItem>
                   )
