@@ -111,7 +111,7 @@ const CreateJobForm = () => {
           <CustomFormField
             name="location"
             control={form.control}
-            label="ubicacion" className='w-full'
+            label="ubicación" className='w-full'
           />
           <CustomFormField name="link" control={form.control} label="URL" className='w-full'/>
           </section>
