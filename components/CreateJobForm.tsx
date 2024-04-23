@@ -21,6 +21,7 @@ import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { createJobAction } from '@/utils/actions';
 import { IconFilePlus } from '@tabler/icons-react';
+import { buttonClassName, formClassName, h2ClassName, headerClassName, mainClassName, sectionClassName } from '@/utils/tagStylesConfig';
 
 const CreateJobForm = () => {
   const form = useForm<CreateAndEditJobType>({
@@ -69,20 +70,20 @@ const CreateJobForm = () => {
     mutate(values);
   };
 
-  const sectionClassName : string = 'flex gap-4 flex-col md:flex-row items-start bg-muted py-5 px-5 rounded-lg h-full flex-grow'
+  
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className=" p-8 rounded-lg flex flex-col gap-3 justify-end"
+        className={formClassName}
       >
-        <header className='border-b-2 border-primary-accent px-5 pb-2 mb-5'>
-          <h2 className="capitalize font-semibold text-2xl ">
+        <header className={headerClassName}>
+          <h2 className={h2ClassName}>
           nuevo trabajo
         </h2>
         </header>
-        <main className='flex flex-col gap-5 '>
+        <main className={mainClassName}>
         <section className={sectionClassName}>
           <CustomFormField
             name="position"
@@ -156,7 +157,7 @@ const CreateJobForm = () => {
          <footer className='flex justify-end'>
           <Button
             type="submit"
-            className="self-end capitalize bg-primary-accent font-medium text-lg rounded-sm font-sans gap-2 text-black"
+            className={buttonClassName}
             disabled={isPending}
             
           >
