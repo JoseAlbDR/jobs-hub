@@ -20,7 +20,7 @@ const ChartsContainer = () => {
   if (!data || data.length < 1) return null;
 
   return (
-    <section className="mt-16">
+    <section className="mt-16 px-5">
       <h1 className="text-4xl font-semibold text-center">
         Solicitudes Mensuales
       </h1>
