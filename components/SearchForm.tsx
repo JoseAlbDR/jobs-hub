@@ -13,6 +13,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Form } from './ui/form';
 import { CustomFormField, CustomFormSelect } from './FormComponents';
 import { Button } from './ui/button';
+import { articleClassName, buttonClassName, formClassName, h2ClassName, headerClassName, mainClassName, sectionClassName } from '@/utils/tagStylesConfig';
 
 const SearchForm = () => {
   const searchParams = useSearchParams();
@@ -57,26 +58,36 @@ const SearchForm = () => {
 
     router.push(`${pathname}?${resetParams.toString()}`);
   };
-
+  
   return (
     <Form {...form}>
       <form
-        className="bg-muted p-8 rounded"
-        onSubmit={form.handleSubmit(onSubmit)}
+         onSubmit={form.handleSubmit(onSubmit)}
+         className={formClassName}
       >
-        <h2 className="capitalize font-semibold text-4xl mb-6">Buscar</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
-          <CustomFormField
+         <header className={headerClassName}>
+            <h2 className={h2ClassName}>Buscar</h2>
+         </header>
+         <main className={mainClassName}>
+          <section className={`${sectionClassName} md:flex-col`}>
+
+            <article className={articleClassName}>
+               <CustomFormField
             name="search"
             control={form.control}
-            label="buscar"
+            label="puesto"
+            className='w-full'
           />
-          <CustomFormSelect
+            </article>
+
+            <article className={articleClassName}>
+               <CustomFormSelect
             name="status"
             control={form.control}
             label="estado"
             items={Object.values(JobStatus)}
-            type="search"
+            type="search" 
+            className='w-full'
           />
           <CustomFormSelect
             name="mode"
@@ -84,6 +95,7 @@ const SearchForm = () => {
             label="jornada"
             items={Object.values(JobMode)}
             type="search"
+            className='w-full'
           />
           <CustomFormSelect
             name="contract"
@@ -91,6 +103,7 @@ const SearchForm = () => {
             label="contrato"
             items={Object.values(JobContract)}
             type="search"
+            className='w-full'
           />
           <CustomFormSelect
             name="type"
@@ -98,19 +111,26 @@ const SearchForm = () => {
             label="tipo"
             items={Object.values(JobType)}
             type="search"
+            className='w-full'
           />
-          <Button type="submit" className="capitalize self-end">
+            </article>
+         <article className={`${articleClassName} justify-end`}>
+<Button type="submit" className={buttonClassName}>
             Buscar
           </Button>
           <Button
             type="reset"
-            className="capitalize self-end"
-            variant="outline"
+            className={buttonClassName}
+            
             onClick={handleResetForm}
           >
             Reset
           </Button>
-        </div>
+         </article>
+          
+          </section>
+          </main>     
+       
       </form>
     </Form>
   );
