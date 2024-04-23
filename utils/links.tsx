@@ -22,7 +22,7 @@ const links: NavLink[] = [
   {
     href: '/stats',
     label: 'Estadísticas',
-    icon: <AreaChart />,
+    icon: <AreaChart className='stroke-primary-accent'/>,
   },
 ];
 
