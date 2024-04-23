@@ -7,6 +7,7 @@ import ComplexButtonContainer from './ComplexButtonContainer';
 import { getParamsFromUrl } from '@/utils/getParamsFromUrl';
 import JobLoadingCard from './JobLoadingCard';
 import { Skeleton } from './ui/skeleton';
+import { h2ClassName, headerClassName } from '@/utils/tagStylesConfig';
 
 const JobsList = () => {
   const searchParams = useSearchParams();
@@ -43,19 +44,22 @@ const JobsList = () => {
     );
 
   if (jobs.length < 1)
-    return <h2 className="text-xl mt-8">No se han encontrado trabajos</h2>;
+    return <h2 className={h2ClassName}>No se han encontrado trabajos</h2>;
 
   return (
     <>
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold capitalize mt-4">
+      
+        <header className={`${headerClassName} flex items-baseline justify-between mx-5`}>
+           <h2 className={h2ClassName}>
           {count} trabajos encontrados
         </h2>
         {totalPages < 2 ? null : (
           <ComplexButtonContainer currentPage={page} totalPages={totalPages} />
         )}
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 mt-8">
+        </header>
+       
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 my-5 mx-5">
         {jobs.map((job) => (
           <JobCard key={job.id} job={job} />
         ))}
