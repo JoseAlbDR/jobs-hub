@@ -5,9 +5,10 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { buttonClassName } from '@/utils/tagStylesConfig';
 export default function Home() {
+  
   return (
-    <div className=''>
-    <main className='flex flex-col  items-center '>
+   
+    <main className='flex flex-col  items-center'>
       <section className=" mx-auto flex">
        
         <article className='w-10/12 '>
@@ -38,6 +39,6 @@ export default function Home() {
             <Link href="add-job">Empezar</Link>
           </Button></section>
     </main>
-    </div>
+  
   );
 }
