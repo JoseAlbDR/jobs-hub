@@ -55,8 +55,8 @@ const JobCard = ({ job }: { job: JobData }) => {
           </CardDescription>
           
       </CardHeader>
-      <Separator />
-      <CardContent className="flex gap-2 flex-col flex-1 pt-6">
+      
+      <CardContent className="flex gap-2 flex-col flex-1 ">
         <section>
           {job?.note && (
           <JobInfo icon={<IconFileDescription stroke={1}  className='stroke-primary-accent'/>} text={job.note} truncate />
@@ -67,7 +67,7 @@ const JobCard = ({ job }: { job: JobData }) => {
           <JobInfo icon={<IconFileCertificate stroke={1} className='stroke-primary-accent'/>} text={job.contract} />
           
         </section>
-        <section className='flex justify-between'>
+        <section className='flex justify-stretch'>
           <JobInfo icon={<IconBuildingSkyscraper stroke={1}  className='stroke-primary-accent'/>} text={job.type} />
 <JobInfo icon={<MapPin  className='stroke-primary-accent stroke-1'/>} text={job.location} />
         </section>
