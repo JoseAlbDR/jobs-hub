@@ -16,7 +16,7 @@ function loading() {
         <Skeleton className="h-10" />
       </div>
       <Skeleton className="text-xl font-semibold capitalize mt-4 h-[25px] w-[250px]" />
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-8 mt-8">
         <JobLoadingCard />
         <JobLoadingCard />
         <JobLoadingCard />
