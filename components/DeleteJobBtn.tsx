@@ -51,7 +51,7 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" disabled={isPending}>
+        <Button variant="destructive" disabled={isPending} className='rounded-sm'>
           Borrar
         </Button>
       </AlertDialogTrigger>
@@ -59,7 +59,7 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
         <AlertDialogHeader>
           <AlertDialogTitle>¿Estás seguro?</AlertDialogTitle>
           <AlertDialogDescription>
-            Ya no habrá marcha atras
+            Ya no habrá marcha atrás
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

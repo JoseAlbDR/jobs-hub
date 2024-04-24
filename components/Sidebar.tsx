@@ -20,24 +20,28 @@ const Sidebar = () => {
   }, [theme]);
 
   return (
-    <aside className="py-4 px-8 bg-muted h-full">
-      <Image src={logo} alt="app logo" className="mx-auto -mt-16" priority />
-      <div className="flex flex-col mt-20 gap-y-4 items-center content-center">
+    <aside className="py-0 ml-5 h-screen">
+      <header className='py-10'><Image src={logo} alt="app logo" className="mx-auto max-h-10" priority /></header>
+      <main className='flex flex-grow flex-col gap-2 items-center justify-start bg-muted rounded-lg h-2/3 px-0 py-10'> 
         {links.map((link) => {
           return (
             <Button
               asChild
               key={link.href}
               variant={pathname === link.href ? 'default' : 'link'}
-              className="w-48"
+              className="w-full flex justify-start h-16"
+              
             >
-              <Link href={link.href} className="flex items-center gap-x-2">
-                {link.icon} <span className="capitalize">{link.label}</span>
+              <Link href={link.href} className="flex justify-start gap-x-2">
+                <span className=''>{link.icon}</span> <span className="capitalize text-foreground font-medium text-lg">{link.label}</span>
               </Link>
             </Button>
           );
         })}
-      </div>
+      </main>
+      <footer className='h-20'></footer>
+      
+     
     </aside>
   );
 };

@@ -28,6 +28,7 @@ const config = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+          accent:'#f39326'
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',

@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import React from 'react';
 import StatsCard from './StatsCard';
+import { h2ClassName, headerClassName } from '@/utils/tagStylesConfig';
 
 const StatsContainer = () => {
   const { data } = useQuery({
@@ -12,7 +13,12 @@ const StatsContainer = () => {
   });
 
   return (
-    <section className="grid md:grid-cols-2 gap-4 lg:grid-cols-3">
+    <div className='p-8'>
+
+     <header className={headerClassName}>
+            <h2 className={h2ClassName}>Estadísticas</h2>
+         </header>
+         <section className="grid md:grid-cols-2 gap-4 lg:grid-cols-3">
       <StatsCard
         title="pendiente"
         value={data?.pendiente || 0}
@@ -29,6 +35,8 @@ const StatsContainer = () => {
         color="bg-destructive"
       />
     </section>
+    </div>
+    
   );
 };
 

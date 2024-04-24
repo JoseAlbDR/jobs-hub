@@ -20,6 +20,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { createJobAction } from '@/utils/actions';
+import { IconFilePlus } from '@tabler/icons-react';
+import { buttonClassName, formClassName, h2ClassName, headerClassName, mainClassName, sectionClassName } from '@/utils/tagStylesConfig';
 
 const CreateJobForm = () => {
   const form = useForm<CreateAndEditJobType>({
@@ -68,70 +70,102 @@ const CreateJobForm = () => {
     mutate(values);
   };
 
+  
+
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-muted p-8 rounded"
+        className={formClassName}
       >
-        <h2 className="capitalize font-semibold text-4xl mb-6">
-          añadir trabajo
+        <header className={headerClassName}>
+          <h2 className={h2ClassName}>
+          nuevo trabajo
         </h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
+        </header>
+        <main className={mainClassName}>
+        <section className={sectionClassName}>
           <CustomFormField
             name="position"
             control={form.control}
             label="puesto"
+            className='w-full md:w-2/3'
+            
+            
           />
-          <CustomFormField
-            name="company"
-            control={form.control}
-            label="empresa"
-          />
-          <CustomFormField
-            name="location"
-            control={form.control}
-            label="ubicacion"
-          />
-          <CustomFormField name="link" control={form.control} label="URL" />
           <CustomFormSelect
             name="status"
             control={form.control}
             label="estado"
             items={Object.values(JobStatus)}
+            className='w-full md:w-1/3'
+            
           />
-          <CustomFormSelect
+          </section>
+          <section className={sectionClassName}>
+             <CustomFormField
+            name="company"
+            control={form.control}
+            label="empresa" className='w-full'
+          />
+          <CustomFormField
+            name="location"
+            control={form.control}
+            label="ubicación" className='w-full'
+          />
+          <CustomFormField name="link" control={form.control} label="URL" className='w-full'/>
+          </section>
+        
+         <section className={sectionClassName}>
+ <CustomFormSelect
             name="mode"
             control={form.control}
             label="jornada"
             items={Object.values(JobMode)}
+            className='w-full'
           />
-          <CustomFormSelect
-            name="contract"
-            control={form.control}
-            label="contrato"
-            items={Object.values(JobContract)}
-          />
+         
           <CustomFormSelect
             name="type"
             control={form.control}
             label="tipo"
             items={Object.values(JobType)}
+            className='w-full'
           />
-          <CustomFormField
+           <CustomFormSelect
+            name="contract"
+            control={form.control}
+            label="contrato"
+            items={Object.values(JobContract)}
+             className='w-full'
+          />
+            
+         </section>
+         
+           <section className={sectionClassName}>
+             <CustomFormField
             name="note"
             control={form.control}
             label="Nota"
             type="area"
+            className='w-full '
           />
+           </section>
+             
+            
+         </main>
+         <footer className='flex justify-end'>
           <Button
             type="submit"
-            className="self-end capitalize"
+            className={buttonClassName}
             disabled={isPending}
+            
           >
-            {isPending ? 'creando' : 'añadir trabajo'}
+            <IconFilePlus stroke={2}/> {isPending ? 'creando' : 'añadir'}
           </Button>
-        </div>
+         </footer>
+          
+      
       </form>
     </Form>
   );
