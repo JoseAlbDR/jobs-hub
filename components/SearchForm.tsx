@@ -63,7 +63,7 @@ const SearchForm = () => {
     <Form {...form}>
       <form
          onSubmit={form.handleSubmit(onSubmit)}
-         className='form-custom'
+         className='form-custom px-5'
       >
          <header className='header-custom'>
             <h2 className='h2-custom'>Buscar</h2>
@@ -80,7 +80,7 @@ const SearchForm = () => {
           />
             </article>
 
-            <article className='article-custom'>
+            <article className='article-custom gap-1'>
                <CustomFormSelect
             name="status"
             control={form.control}
@@ -114,7 +114,7 @@ const SearchForm = () => {
             className='w-full'
           />
             </article>
-         <article className={`article-custom justify-end`}>
+         <article className={`article-custom gap-5 justify-end`}>
 <Button type="submit" className='btn-custom'>
             Buscar
           </Button>

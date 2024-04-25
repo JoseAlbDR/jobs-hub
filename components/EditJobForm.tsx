@@ -80,7 +80,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='form-custom'
+        className='form-custom px-5'
       >
          <header className='header-custom'>
           <h2 className='h2-custom'>

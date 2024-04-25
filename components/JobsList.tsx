@@ -49,7 +49,7 @@ const JobsList = () => {
   return (
     <>
       
-        <header className={`header-custom flex items-baseline justify-between mx-5`}>
+        <header className={`header-custom flex flex-col lg:flex-row items-baseline justify-between `}>
            <h2 className='h2-custom'>
           {count} trabajos encontrados
         </h2>
