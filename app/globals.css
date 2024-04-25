@@ -72,3 +72,34 @@
     @apply bg-background text-foreground;
   }
 }
+
+.btn-custom {
+  @apply self-end capitalize bg-primary-accent font-medium text-lg rounded-sm font-sans gap-2 text-black;
+}
+
+.section-custom {
+  @apply flex gap-4 flex-col md:flex-row items-start bg-muted py-5 px-5 rounded-lg h-full flex-grow;
+}
+.h2-custom {
+  @apply capitalize font-semibold text-2xl;
+}
+
+.invalid-md-flex-row {
+  @apply md:flex-col;
+}
+
+.header-custom {
+  @apply border-b-2  border-primary-accent p-5 pb-2 mb-5;
+}
+
+.form-custom {
+  @apply rounded-lg flex flex-col gap-3;
+}
+
+.main-custom {
+  @apply flex flex-col gap-5;
+}
+
+.article-custom {
+  @apply flex w-full flex-grow;
+}

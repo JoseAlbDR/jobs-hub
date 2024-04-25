@@ -40,7 +40,7 @@ export default function Home() {
  <Image src={getBackgroundColor(theme)==='dark'? LandingImgWhite : LandingImgBlack} alt="landing img" className=" hidden self-end lg:block w-10/12 " />
         </article>
       </section>
-      <section><Button asChild className={`${buttonClassName} mt-5 w-56 h-16 text-3xl font-bold rounded-lg`}>
+      <section><Button asChild className={`self-end capitalize bg-primary-accent font-sans gap-2 text-black mt-5 w-56 h-16 text-3xl font-bold rounded-lg`}>
             <Link href="add-job">Empezar</Link>
           </Button></section>
     </main>

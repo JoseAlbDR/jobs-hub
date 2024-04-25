@@ -44,13 +44,13 @@ const JobsList = () => {
     );
 
   if (jobs.length < 1)
-    return <h2 className={h2ClassName}>No se han encontrado trabajos</h2>;
+    return <h2 className='h2-custom'>No se han encontrado trabajos</h2>;
 
   return (
     <>
       
-        <header className={`${headerClassName} flex items-baseline justify-between mx-5`}>
-           <h2 className={h2ClassName}>
+        <header className={`header-custom flex flex-col lg:flex-row items-baseline justify-between `}>
+           <h2 className='h2-custom'>
           {count} trabajos encontrados
         </h2>
         {totalPages < 2 ? null : (
