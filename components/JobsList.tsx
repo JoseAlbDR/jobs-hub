@@ -11,17 +11,23 @@ import { Skeleton } from './ui/skeleton';
 const JobsList = () => {
   const searchParams = useSearchParams();
 
-  const { search, status, mode, type, currPage } =
+  const { search, status, mode, type, contract, currPage } =
     getParamsFromUrl(searchParams);
 
   const { data, isPending } = useQuery({
-    queryKey: ['jobs', search, status, mode, type, currPage],
+    queryKey: ['jobs', search, status, mode, type, contract, currPage],
     queryFn: () =>
-      getAllJobsAction({ search, status, mode, type, page: currPage }),
+      getAllJobsAction({
+        search,
+        status,
+        mode,
+        type,
+        contract,
+        page: currPage,
+      }),
   });
 
   const jobs = data?.jobs || [];
-
   const count = data?.count || 0;
   const page = data?.page || 0;
   const totalPages = data?.totalPages || 0;

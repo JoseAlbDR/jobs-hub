@@ -1,5 +1,5 @@
 import { ReadonlyURLSearchParams } from 'next/navigation';
-import { JobMode, JobStatus, JobType } from './types';
+import { JobContract, JobMode, JobStatus, JobType } from './types';
 
 export const getParamsFromUrl = (
   searchParams: ReadonlyURLSearchParams
@@ -8,6 +8,7 @@ export const getParamsFromUrl = (
   status: JobStatus;
   mode: JobMode;
   type: JobType;
+  contract: JobContract;
   currPage: number;
 } => {
   const params = Object.fromEntries(searchParams);
@@ -15,7 +16,8 @@ export const getParamsFromUrl = (
   const status = (params.status || 'todos') as JobStatus;
   const mode = (params.mode || 'todos') as JobMode;
   const type = (params.type || 'todos') as JobType;
+  const contract = (params.contract || 'todos') as JobContract;
   const currPage = +params.page || 1;
 
-  return { search, status, mode, type, currPage };
+  return { search, status, mode, type, contract, currPage };
 };

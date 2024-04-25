@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { redirect } from 'next/navigation';
 import {
   CreateAndEditJobType,
+  JobContract,
   JobData,
   JobMode,
   JobStatus,
@@ -86,6 +87,7 @@ type GetAllJobsActionTypes = {
   type?: JobType;
   limit?: number;
   page?: number;
+  contract?: JobContract;
 };
 
 export const getAllJobsAction = async ({
@@ -93,6 +95,7 @@ export const getAllJobsAction = async ({
   status,
   mode,
   type,
+  contract,
   page = 1,
   limit = 10,
 }: GetAllJobsActionTypes): Promise<{
@@ -148,16 +151,15 @@ export const getAllJobsAction = async ({
         type,
       };
 
-    const skip = (page - 1) * limit;
+    if (contract && contract !== 'todos')
+      whereClause = {
+        ...whereClause,
+        contract,
+      };
 
-    // const jobs: JobData[] = await prisma.job.findMany({
-    //   where: whereClause,
-    //   skip,
-    //   take: limit,
-    //   orderBy: {
-    //     createdAt: 'desc',
-    //   },
-    // });
+    console.log({ whereClause });
+
+    const skip = (page - 1) * limit;
 
     const [jobs, count]: [jobs: JobData[], count: number] =
       await prisma.$transaction([

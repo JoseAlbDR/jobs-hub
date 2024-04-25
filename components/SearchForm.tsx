@@ -13,7 +13,6 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Form } from './ui/form';
 import { CustomFormField, CustomFormSelect } from './FormComponents';
 import { Button } from './ui/button';
-import { articleClassName, buttonClassName, formClassName, h2ClassName, headerClassName, mainClassName, sectionClassName } from '@/utils/tagStylesConfig';
 
 const SearchForm = () => {
   const searchParams = useSearchParams();
@@ -32,12 +31,19 @@ const SearchForm = () => {
     },
   });
 
-  const onSubmit = ({ search, mode, status, type }: SearchFormType) => {
+  const onSubmit = ({
+    search,
+    mode,
+    status,
+    type,
+    contract,
+  }: SearchFormType) => {
     let newParams = new URLSearchParams();
     search && newParams.set('search', search || '');
     newParams.set('mode', mode);
     newParams.set('type', type);
     newParams.set('status', status);
+    newParams.set('contract', contract);
 
     router.push(`${pathname}?${newParams.toString()}`);
   };
@@ -58,79 +64,72 @@ const SearchForm = () => {
 
     router.push(`${pathname}?${resetParams.toString()}`);
   };
-  
+
   return (
     <Form {...form}>
-      <form
-         onSubmit={form.handleSubmit(onSubmit)}
-         className='form-custom px-5'
-      >
-         <header className='header-custom'>
-            <h2 className='h2-custom'>Buscar</h2>
-         </header>
-         <main className='main-custom'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="form-custom px-5">
+        <header className="header-custom">
+          <h2 className="h2-custom">Buscar</h2>
+        </header>
+        <main className="main-custom">
           <section className={`section-custom invalid-md-flex-row`}>
-
-            <article className='article-custom'>
-               <CustomFormField
-            name="search"
-            control={form.control}
-            label="puesto"
-            className='w-full'
-          />
+            <article className="article-custom">
+              <CustomFormField
+                name="search"
+                control={form.control}
+                label="puesto"
+                className="w-full"
+              />
             </article>
 
-            <article className='article-custom gap-1'>
-               <CustomFormSelect
-            name="status"
-            control={form.control}
-            label="estado"
-            items={Object.values(JobStatus)}
-            type="search" 
-            className='w-full'
-          />
-          <CustomFormSelect
-            name="mode"
-            control={form.control}
-            label="jornada"
-            items={Object.values(JobMode)}
-            type="search"
-            className='w-full'
-          />
-          <CustomFormSelect
-            name="contract"
-            control={form.control}
-            label="contrato"
-            items={Object.values(JobContract)}
-            type="search"
-            className='w-full'
-          />
-          <CustomFormSelect
-            name="type"
-            control={form.control}
-            label="tipo"
-            items={Object.values(JobType)}
-            type="search"
-            className='w-full'
-          />
+            <article className="article-custom gap-1">
+              <CustomFormSelect
+                name="status"
+                control={form.control}
+                label="estado"
+                items={Object.values(JobStatus)}
+                type="search"
+                className="w-full"
+              />
+              <CustomFormSelect
+                name="mode"
+                control={form.control}
+                label="jornada"
+                items={Object.values(JobMode)}
+                type="search"
+                className="w-full"
+              />
+              <CustomFormSelect
+                name="contract"
+                control={form.control}
+                label="contrato"
+                items={Object.values(JobContract)}
+                type="search"
+                className="w-full"
+              />
+              <CustomFormSelect
+                name="type"
+                control={form.control}
+                label="tipo"
+                items={Object.values(JobType)}
+                type="search"
+                className="w-full"
+              />
             </article>
-         <article className={`article-custom gap-5 justify-end`}>
-<Button type="submit" className='btn-custom'>
-            Buscar
-          </Button>
-          <Button
-            type="reset"
-            className='btn-custom'
-            
-            onClick={handleResetForm}
-          >
-            Reset
-          </Button>
-         </article>
-          
+            <article className={`article-custom gap-5 justify-end`}>
+              <Button type="submit" className="btn-custom">
+                Buscar
+              </Button>
+              <Button
+                type="reset"
+                className="btn-custom"
+                onClick={handleResetForm}
+              >
+                Reset
+              </Button>
+            </article>
           </section>
-          </main>     
-       
+        </main>
       </form>
     </Form>
   );

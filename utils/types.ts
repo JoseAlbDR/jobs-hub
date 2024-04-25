@@ -33,7 +33,7 @@ export enum JobContract {
   All = 'todos',
   Internship = 'practicas',
   Permanent = 'indefinido',
-  Part_Time = 'parcial',
+  temporal = 'temporal',
   Freelance = 'freelance',
 }
 

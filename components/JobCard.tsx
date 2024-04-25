@@ -56,7 +56,7 @@ const JobCard = ({ job }: { job: JobData }) => {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="flex gap-2 flex-col flex-1 ">
+      <CardContent className="flex gap-2 flex-col flex-1 justify-end">
         <section>
           {job?.note && (
             <JobInfo

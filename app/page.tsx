@@ -1,21 +1,13 @@
-'use client';
 import * as React from 'react';
 import Image from 'next/image';
 import LandingImgBlack from '../assets/main-black.svg';
 import LandingImgWhite from '../assets/main-white.svg';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
-import { getBackgroundColor } from '@/utils/getBackgroundColor';
 import DarkLogo from '@/components/DarkLogo';
 import LightLogo from '@/components/LightLogo';
+
 export default function Home() {
-  const { theme } = useTheme();
-
-  React.useEffect(() => {}, []);
-
-  console.log(getBackgroundColor(theme));
-
   return (
     <main className="flex flex-col  items-center">
       <section className=" mx-auto flex">
@@ -35,22 +27,12 @@ export default function Home() {
           </p>
         </article>
         <article className="w-1/2 flex justify-end">
-          {/* <Image
-            src={
-              getBackgroundColor(theme) === 'dark'
-                ? LandingImgWhite
-                : LandingImgBlack
-            }
-            alt="landing img"
-            className=" hidden self-end lg:block w-10/12 "
-          /> */}
           <Image
             src={LandingImgWhite}
             alt="landing img"
             className="self-end w-10/12 hidden lg:hidden lg:dark:block"
             priority
           />
-
           <Image
             src={LandingImgBlack}
             alt="landing img"
