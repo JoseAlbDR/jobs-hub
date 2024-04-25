@@ -13,19 +13,32 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 export default function ThemeToggle() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme } = useTheme();
 
-  // return (
-  //   <Button
-  //     variant="outline"
-  //     size="icon"
-  //     onClick={() => {
-  //       theme === 'light' && setTheme('dark');
-  //       theme === 'dark' && setTheme('light');
-  //     }}
-  //   >
-  //     {theme === 'light' ? <Moon /> : <Sun />}
-  //   </Button> )
+  return (
+    <>
+      <Button
+        variant="outline"
+        size="icon"
+        className="flex items-center justify-center dark:hidden rounded-full"
+        onClick={() => {
+          setTheme('dark');
+        }}
+      >
+        <Moon />
+      </Button>
+      <Button
+        variant="outline"
+        size="icon"
+        className="hidden dark:block rounded-full items-center justify-center"
+        onClick={() => {
+          setTheme('light');
+        }}
+      >
+        <Sun />
+      </Button>
+    </>
+  );
 
   return (
     <DropdownMenu>

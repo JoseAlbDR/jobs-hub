@@ -13,9 +13,9 @@ import { Separator } from './ui/separator';
 
 const JobLoadingCard = () => {
   return (
-    <Card className="bg-muted flex flex-col gap-3 h-[416px]">
-      <CardHeader>
-        <CardTitle className="capitalize">
+    <div className="bg-muted flex flex-col gap-3 h-[416px]">
+      <div>
+        <div className="capitalize">
           <div className="flex items-center space-x-4">
             <Skeleton className="h-12 w-12 rounded-full" />
             <div className="space-y-2">
@@ -23,13 +23,13 @@ const JobLoadingCard = () => {
               <Skeleton className="h-4 w-[200px]" />
             </div>
           </div>
-        </CardTitle>
-        <CardDescription className="capitalize">
+        </div>
+        <div className="capitalize">
           <Skeleton className="h-4 w-[125px]" />
-        </CardDescription>
-      </CardHeader>
+        </div>
+      </div>
       <Separator />
-      <CardContent className="flex gap-2 flex-col flex-1 pt-6">
+      <div className="flex gap-2 flex-col flex-1 pt-6">
         <div className="flex flex-wrap gap-3 items-center justify-between">
           <Skeleton className="h-4 w-[125px]" />
           <Skeleton className="h-4 w-[125px]" />
@@ -39,13 +39,13 @@ const JobLoadingCard = () => {
         </div>
         <Skeleton className="h-4 w-[71px]" />
         <Skeleton className="h-4 w-[250px]" />
-      </CardContent>
+      </div>
       <Separator />
-      <CardFooter className="flex gap-4">
+      <div className="flex gap-4">
         <Skeleton className="h-4 w-[71px]" />
         <Skeleton className="h-4 w-[71px]" />
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 };
 

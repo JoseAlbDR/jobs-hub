@@ -7,7 +7,6 @@ import ComplexButtonContainer from './ComplexButtonContainer';
 import { getParamsFromUrl } from '@/utils/getParamsFromUrl';
 import JobLoadingCard from './JobLoadingCard';
 import { Skeleton } from './ui/skeleton';
-import { h2ClassName, headerClassName } from '@/utils/tagStylesConfig';
 
 const JobsList = () => {
   const searchParams = useSearchParams();
@@ -44,21 +43,19 @@ const JobsList = () => {
     );
 
   if (jobs.length < 1)
-    return <h2 className='h2-custom'>No se han encontrado trabajos</h2>;
+    return <h2 className="h2-custom">No se han encontrado trabajos</h2>;
 
   return (
     <>
-      
-        <header className={`header-custom flex flex-col lg:flex-row items-baseline justify-between `}>
-           <h2 className='h2-custom'>
-          {count} trabajos encontrados
-        </h2>
+      <header
+        className={`header-custom flex flex-col lg:flex-row items-baseline justify-between `}
+      >
+        <h2 className="h2-custom">{count} trabajos encontrados</h2>
         {totalPages < 2 ? null : (
           <ComplexButtonContainer currentPage={page} totalPages={totalPages} />
         )}
-        </header>
-       
-      
+      </header>
+
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 my-5 mx-5">
         {jobs.map((job) => (
           <JobCard key={job.id} job={job} />
