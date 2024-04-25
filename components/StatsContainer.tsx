@@ -15,8 +15,8 @@ const StatsContainer = () => {
   return (
     <div className='p-8'>
 
-     <header className={headerClassName}>
-            <h2 className={h2ClassName}>Estadísticas</h2>
+     <header className='header-custom'>
+            <h2 className='h2-custom'>Estadísticas</h2>
          </header>
          <section className="grid md:grid-cols-2 gap-4 lg:grid-cols-3">
       <StatsCard

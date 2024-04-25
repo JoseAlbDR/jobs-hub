@@ -80,18 +80,18 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={formClassName}
+        className='form-custom'
       >
-         <header className={headerClassName}>
-          <h2 className={h2ClassName}>
+         <header className='header-custom'>
+          <h2 className='h2-custom'>
           actualizar trabajo
         </h2>
         </header>
        
       
 
-<main className={mainClassName}>
-        <section className={sectionClassName}>
+<main className='main-custom'>
+        <section className='section-custom'>
  <CustomFormField
             name="position"
             control={form.control}
@@ -106,7 +106,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
             className='w-full md:w-1/3'
           />
         </section>
- <section className={sectionClassName}>
+ <section className='section-custom'>
  <CustomFormField
             name="company"
             control={form.control}
@@ -122,7 +122,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
           <CustomFormField name="link" control={form.control} label="URL"  className='w-full'/>
  </section>
          
-         <section className={sectionClassName}>
+         <section className='section-custom'>
  <CustomFormSelect
             name="mode"
             control={form.control}
@@ -146,7 +146,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
           />
          </section>
          
-          <section className={sectionClassName}>
+          <section className='section-custom'>
 <CustomFormField
             name="note"
             control={form.control}
@@ -163,7 +163,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
          <footer className='flex justify-end'>
  <Button
             type="submit"
-            className={buttonClassName}
+            className='btn-custom'
             disabled={isPending}
           >
             {isPending ? 'actualizando' : 'actualizar '}

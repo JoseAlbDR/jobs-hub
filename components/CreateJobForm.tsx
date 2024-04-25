@@ -76,15 +76,15 @@ const CreateJobForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={formClassName}
+        className='form-custom'
       >
-        <header className={headerClassName}>
-          <h2 className={h2ClassName}>
+        <header className='header-custom'>
+          <h2 className='h2-custom'>
           nuevo trabajo
         </h2>
         </header>
-        <main className={mainClassName}>
-        <section className={sectionClassName}>
+        <main className='main-custom'>
+        <section className='section-custom'>
           <CustomFormField
             name="position"
             control={form.control}
@@ -102,7 +102,7 @@ const CreateJobForm = () => {
             
           />
           </section>
-          <section className={sectionClassName}>
+          <section className='section-custom'>
              <CustomFormField
             name="company"
             control={form.control}
@@ -116,7 +116,7 @@ const CreateJobForm = () => {
           <CustomFormField name="link" control={form.control} label="URL" className='w-full'/>
           </section>
         
-         <section className={sectionClassName}>
+         <section className='section-custom'>
  <CustomFormSelect
             name="mode"
             control={form.control}
@@ -142,7 +142,7 @@ const CreateJobForm = () => {
             
          </section>
          
-           <section className={sectionClassName}>
+           <section className='section-custom'>
              <CustomFormField
             name="note"
             control={form.control}
@@ -157,7 +157,7 @@ const CreateJobForm = () => {
          <footer className='flex justify-end'>
           <Button
             type="submit"
-            className={buttonClassName}
+            className='btn-custom'
             disabled={isPending}
             
           >
