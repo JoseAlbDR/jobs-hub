@@ -29,7 +29,7 @@ const JobsList = () => {
   if (isPending)
     return (
       <>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-4">
           <Skeleton className="text-xl font-semibold capitalize mt-4 h-[25px] w-[250px]" />
           <Skeleton className="mt-4 h-[36px] w-[450px]" />
         </div>
