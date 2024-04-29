@@ -9,7 +9,7 @@ import LightLogo from '@/components/LightLogo';
 
 export default function Home() {
   return (
-    <main className="flex flex-col  items-center">
+    <main className="flex flex-col  items-center justify-center min-h-screen max-w-[1440px] mx-auto">
       <section className=" mx-auto flex">
         <article className="w-10/12 ">
           <DarkLogo />
