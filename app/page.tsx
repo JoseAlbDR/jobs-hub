@@ -46,7 +46,7 @@ export default function Home() {
           asChild
           className={`self-end capitalize bg-primary-accent font-sans gap-2 text-black mt-5 w-56 h-16 text-3xl font-bold rounded-lg`}
         >
-          <Link href="add-job">Empezar</Link>
+          <Link href="jobs">Empezar</Link>
         </Button>
       </section>
     </main>

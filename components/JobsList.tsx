@@ -32,22 +32,6 @@ const JobsList = () => {
   const page = data?.page || 0;
   const totalPages = data?.totalPages || 0;
 
-  if (isPending)
-    return (
-      <>
-        <div className="flex items-center justify-between mt-4">
-          <Skeleton className="text-xl font-semibold capitalize mt-4 h-[25px] w-[250px]" />
-          <Skeleton className="mt-4 h-[36px] w-[450px]" />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
-          <JobLoadingCard />
-          <JobLoadingCard />
-          <JobLoadingCard />
-          <JobLoadingCard />
-        </div>
-      </>
-    );
-
   if (jobs.length < 1)
     return <h2 className="h2-custom">No se han encontrado trabajos</h2>;
 
