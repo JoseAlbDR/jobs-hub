@@ -14,6 +14,7 @@ import {
 import { useToast } from './ui/use-toast';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteJobAction } from '@/utils/actions';
+import { IconAlertTriangle } from '@tabler/icons-react';
 
 const DeleteJobBtn = ({ id }: { id: string }) => {
   const queryClient = useQueryClient();
@@ -57,14 +58,14 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>¿Estás seguro?</AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogTitle className='flex gap-2 items-center justify-center '><IconAlertTriangle stroke={2} className='stroke-destructive size-10'/> ¿Estás seguro?</AlertDialogTitle>
+          <AlertDialogDescription className='flex justify-center pb-5 text-foreground font-medium'>
             Ya no habrá marcha atrás
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction onClick={handleDeleteJob}>
+          <AlertDialogCancel  className='rounded-sm border-primary-accent text-foreground'>Cancelar</AlertDialogCancel>
+          <AlertDialogAction className='rounded-sm bg-destructive text-slate-100' onClick={handleDeleteJob}>
             {isPending ? 'Borrando...' : 'Aceptar'}
           </AlertDialogAction>
         </AlertDialogFooter>
