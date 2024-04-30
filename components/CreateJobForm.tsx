@@ -13,15 +13,21 @@ import {
 } from '@/utils/types';
 
 import { Button } from '@/components/ui/button';
-import { Form } from '@/components/ui/form';
+import { Form, FormItem, FormLabel } from '@/components/ui/form';
 import { CustomFormField, CustomFormSelect } from './FormComponents';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { createJobAction } from '@/utils/actions';
 import { IconFilePlus } from '@tabler/icons-react';
+import { useState } from 'react';
+import { Input } from './ui/input';
+import { Badge } from './ui/badge';
+import TechsInput from './TechsInput';
 
 const CreateJobForm = () => {
+  const [techs, setTechs] = useState<string[]>([]);
+
   const form = useForm<CreateAndEditJobType>({
     resolver: zodResolver(createAndEditJobSchema),
     defaultValues: {
@@ -33,6 +39,7 @@ const CreateJobForm = () => {
       mode: JobMode.FullTime,
       type: JobType.Presential,
       contract: JobContract.Permanent,
+      techs: '',
     },
   });
 
@@ -114,6 +121,10 @@ const CreateJobForm = () => {
             />
           </section>
 
+          <section className="section-custom flex flex-col">
+            <TechsInput techs={techs} setTechs={setTechs} />
+          </section>
+
           <section className="section-custom">
             <CustomFormSelect
               name="mode"
@@ -140,7 +151,6 @@ const CreateJobForm = () => {
           </section>
 
           <section className="section-custom">
-            
             <CustomFormField
               name="note"
               control={form.control}
@@ -148,7 +158,6 @@ const CreateJobForm = () => {
               type="area"
               className="w-full "
             />
-            
           </section>
         </main>
         <footer className="flex justify-end">
