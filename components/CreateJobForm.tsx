@@ -15,10 +15,10 @@ import {
 import { Button } from '@/components/ui/button';
 import { Form, FormItem, FormLabel } from '@/components/ui/form';
 import { CustomFormField, CustomFormSelect } from './FormComponents';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
-import { createJobAction } from '@/utils/actions';
+import { createJobAction, getUniqueTechTags } from '@/utils/actions';
 import { IconFilePlus } from '@tabler/icons-react';
 import { useState } from 'react';
 import TechsInput from './TechsInput';
@@ -43,6 +43,12 @@ const CreateJobForm = () => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const router = useRouter();
+
+  const { data: currentTechs } = useQuery({
+    queryFn: getUniqueTechTags,
+    queryKey: ['techs'],
+  });
+
   const { mutate, isPending } = useMutation({
     mutationFn: (values: CreateAndEditJobType) =>
       createJobAction({ ...values, techs }),
@@ -120,7 +126,11 @@ const CreateJobForm = () => {
           </section>
 
           <section className="section-custom flex flex-col">
-            <TechsInput techs={techs} setTechs={setTechs} />
+            <TechsInput
+              techs={techs}
+              setTechs={setTechs}
+              currentTechs={currentTechs || []}
+            />
           </section>
 
           <section className="section-custom">

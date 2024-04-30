@@ -103,6 +103,12 @@ const JobCard = ({ job }: { job: JobData }) => {
             text={job.location}
           />
         </section>
+
+        <section className="flex flex-wrap gap-2">
+          {job.techs.map((tech, index) => {
+            return <Badge key={`${tech}-${index}`}>{tech}</Badge>;
+          })}
+        </section>
       </CardContent>
 
       <CardFooter className="flex gap-4 justify-end border-t-2 border-primary-accent pt-5">

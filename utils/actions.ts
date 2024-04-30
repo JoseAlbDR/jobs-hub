@@ -90,6 +90,19 @@ type GetAllJobsActionTypes = {
   contract?: JobContract;
 };
 
+export const getUniqueTechTags = async () => {
+  try {
+    const uniqueTechs = await prisma.job.findMany({
+      distinct: ['techs'],
+      select: { techs: true },
+    });
+
+    return uniqueTechs.map((job) => job.techs).flat();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getAllJobsAction = async ({
   search,
   status,

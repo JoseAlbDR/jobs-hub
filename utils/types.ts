@@ -14,6 +14,7 @@ export type JobData = {
   type: string;
   contract: string;
   note?: string | null;
+  techs: string[];
 };
 
 export enum JobStatus {
