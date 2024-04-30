@@ -11,13 +11,12 @@ const JobsPage = async () => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['jobs', '', 'todos', 'todos', 'todos', 1],
+    queryKey: ['jobs', '', 'todos', 'todos', 'todos', 'todos', 1],
     queryFn: () => getAllJobsAction({}),
   });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <SearchForm />
       <JobsList />
     </HydrationBoundary>
   );
