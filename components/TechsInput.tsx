@@ -39,7 +39,7 @@ const TechsInput = ({ techs, setTechs, currentTechs }: TechInputProps) => {
 
   return (
     <div className="flex flex-col gap-3 items-start justify-center">
-      <FormLabel>Language</FormLabel>
+      <FormLabel>Tecnologias</FormLabel>
       <div className="flex gap-2">
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
