@@ -13,15 +13,19 @@ import {
 } from '@/utils/types';
 
 import { Button } from '@/components/ui/button';
-import { Form } from '@/components/ui/form';
+import { Form, FormItem, FormLabel } from '@/components/ui/form';
 import { CustomFormField, CustomFormSelect } from './FormComponents';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
-import { createJobAction } from '@/utils/actions';
+import { createJobAction, getUniqueTechTags } from '@/utils/actions';
 import { IconFilePlus } from '@tabler/icons-react';
+import { useState } from 'react';
+import TechsInput from './TechsInput';
 
 const CreateJobForm = () => {
+  const [techs, setTechs] = useState<string[]>([]);
+
   const form = useForm<CreateAndEditJobType>({
     resolver: zodResolver(createAndEditJobSchema),
     defaultValues: {
@@ -39,8 +43,15 @@ const CreateJobForm = () => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const router = useRouter();
+
+  const { data: currentTechs } = useQuery({
+    queryFn: getUniqueTechTags,
+    queryKey: ['techs'],
+  });
+
   const { mutate, isPending } = useMutation({
-    mutationFn: (values: CreateAndEditJobType) => createJobAction(values),
+    mutationFn: (values: CreateAndEditJobType) =>
+      createJobAction({ ...values, techs }),
     onSuccess: (data) => {
       if (!data) {
         toast({
@@ -58,6 +69,9 @@ const CreateJobForm = () => {
       });
       queryClient.invalidateQueries({
         queryKey: ['charts'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['techs'],
       });
 
       router.push('/jobs');
@@ -114,6 +128,14 @@ const CreateJobForm = () => {
             />
           </section>
 
+          <section className="section-custom flex flex-col">
+            <TechsInput
+              techs={techs}
+              setTechs={setTechs}
+              currentTechs={currentTechs || []}
+            />
+          </section>
+
           <section className="section-custom">
             <CustomFormSelect
               name="mode"
@@ -140,7 +162,6 @@ const CreateJobForm = () => {
           </section>
 
           <section className="section-custom">
-            
             <CustomFormField
               name="note"
               control={form.control}
@@ -148,7 +169,6 @@ const CreateJobForm = () => {
               type="area"
               className="w-full "
             />
-            
           </section>
         </main>
         <footer className="flex justify-end">

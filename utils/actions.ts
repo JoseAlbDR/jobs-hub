@@ -14,6 +14,7 @@ import {
 } from './types';
 import prisma from './db';
 import { Prisma } from '@prisma/client';
+import * as _ from 'lodash';
 
 const authenticateAndRedirect = (): string => {
   const { userId } = auth();
@@ -88,6 +89,19 @@ type GetAllJobsActionTypes = {
   limit?: number;
   page?: number;
   contract?: JobContract;
+};
+
+export const getUniqueTechTags = async () => {
+  try {
+    const uniqueTechs = await prisma.job.findMany({
+      distinct: ['techs'],
+      select: { techs: true },
+    });
+
+    return _.uniq(uniqueTechs.map((job) => job.techs).flat());
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getAllJobsAction = async ({
