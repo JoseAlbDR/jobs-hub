@@ -70,6 +70,9 @@ const CreateJobForm = () => {
       queryClient.invalidateQueries({
         queryKey: ['charts'],
       });
+      queryClient.invalidateQueries({
+        queryKey: ['techs'],
+      });
 
       router.push('/jobs');
     },

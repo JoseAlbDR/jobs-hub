@@ -41,6 +41,9 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
       queryClient.invalidateQueries({
         queryKey: ['charts'],
       });
+      queryClient.invalidateQueries({
+        queryKey: ['techs'],
+      });
     },
   });
 
@@ -51,7 +54,11 @@ const DeleteJobBtn = ({ id }: { id: string }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" disabled={isPending} className='rounded-sm'>
+        <Button
+          variant="destructive"
+          disabled={isPending}
+          className="rounded-sm"
+        >
           Borrar
         </Button>
       </AlertDialogTrigger>

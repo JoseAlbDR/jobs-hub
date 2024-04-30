@@ -14,6 +14,7 @@ import {
 } from './types';
 import prisma from './db';
 import { Prisma } from '@prisma/client';
+import * as _ from 'lodash';
 
 const authenticateAndRedirect = (): string => {
   const { userId } = auth();
@@ -97,7 +98,7 @@ export const getUniqueTechTags = async () => {
       select: { techs: true },
     });
 
-    return uniqueTechs.map((job) => job.techs).flat();
+    return _.uniq(uniqueTechs.map((job) => job.techs).flat());
   } catch (error) {
     console.log(error);
   }

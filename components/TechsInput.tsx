@@ -5,9 +5,16 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { Command, CommandGroup, CommandInput, CommandItem } from './ui/command';
+import {
+  Command,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from './ui/command';
 import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { CaretSortIcon } from '@radix-ui/react-icons';
 
 interface TechInputProps {
   techs: string[];
@@ -31,9 +38,9 @@ const TechsInput = ({ techs, setTechs, currentTechs }: TechInputProps) => {
   };
 
   return (
-    <>
-      <FormItem className={`col-span-2 w-full`}>
-        <FormLabel className="capitalize">Tecnologias</FormLabel>
+    <div className="flex flex-col gap-3 items-start justify-center">
+      <FormLabel>Language</FormLabel>
+      <div className="flex gap-2">
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <Button
@@ -45,54 +52,57 @@ const TechsInput = ({ techs, setTechs, currentTechs }: TechInputProps) => {
               {tech
                 ? currentTechs.find((curr) => curr === tech)
                 : 'Añade tecnología'}
+              <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>
           <PopoverContent>
             <Command>
-              <CommandInput placeholder="Busca Tecnología" />
-              <CommandGroup>
-                {currentTechs.map((curr) => {
-                  console.log(curr);
-                  return (
-                    <CommandItem
-                      key={curr}
-                      value={curr}
-                      onSelect={(currentValue: string) => {
-                        setTech(currentValue);
-                        setOpen(false);
-                      }}
-                    >
-                      <Check
-                        className={cn(
-                          'mr-2 h-4 w-4',
-                          tech === curr ? 'opacity-100' : 'opacity-0'
-                        )}
-                      />
-
-                      {tech}
-                    </CommandItem>
-                  );
-                })}
-              </CommandGroup>
+              <CommandInput
+                placeholder="Busca Tecnología"
+                onChangeCapture={(e) => setTech(e.currentTarget.value)}
+              />
+              <CommandList>
+                <CommandGroup>
+                  {currentTechs.map((curr) => {
+                    return (
+                      <CommandItem
+                        key={curr}
+                        value={curr}
+                        onSelect={(currentValue: string) => {
+                          setTech(currentValue === tech ? '' : currentValue);
+                          setOpen(false);
+                        }}
+                      >
+                        <Check
+                          className={cn(
+                            'mr-2 h-4 w-4 text-white',
+                            tech === curr ? 'opacity-100' : 'opacity-0'
+                          )}
+                        />
+                        {curr}
+                      </CommandItem>
+                    );
+                  })}
+                </CommandGroup>
+              </CommandList>
             </Command>
           </PopoverContent>
         </Popover>
-
-        <Button onClick={handleAddTech} type="button">
+        <Button onClick={handleAddTech} type="button" className="btn-custom">
           Añadir
         </Button>
-      </FormItem>
-      <div className="flex flex-wrap gap-4">
-        {techs.map((tech, index) => (
-          <Badge
-            key={`${tech}-${index}`}
-            onClick={() => handleDeleteTech(tech)}
-          >
-            {tech}
-          </Badge>
-        ))}
+        <div className="flex flex-wrap gap-4">
+          {techs.map((tech, index) => (
+            <Badge
+              key={`${tech}-${index}`}
+              onClick={() => handleDeleteTech(tech)}
+            >
+              {tech}
+            </Badge>
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
