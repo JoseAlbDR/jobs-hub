@@ -14,7 +14,6 @@ export type JobData = {
   type: string;
   contract: string;
   note?: string | null;
-  techs: string[];
 };
 
 export enum JobStatus {
@@ -72,7 +71,6 @@ export const createAndEditJobSchema = z.object({
   mode: z.nativeEnum(JobMode),
   type: z.nativeEnum(JobType),
   contract: z.nativeEnum(JobContract),
-  techs: z.string(),
 });
 
 export const searchFormSchema = z.object({
@@ -83,5 +81,9 @@ export const searchFormSchema = z.object({
   contract: z.nativeEnum(JobContract),
 });
 
-export type CreateAndEditJobType = z.infer<typeof createAndEditJobSchema>;
+type ZodCreateAndEditJobType = z.infer<typeof createAndEditJobSchema>;
+
+export type CreateAndEditJobType = ZodCreateAndEditJobType & {
+  techs: string[];
+};
 export type SearchFormType = z.infer<typeof searchFormSchema>;

@@ -21,8 +21,6 @@ import { useRouter } from 'next/navigation';
 import { createJobAction } from '@/utils/actions';
 import { IconFilePlus } from '@tabler/icons-react';
 import { useState } from 'react';
-import { Input } from './ui/input';
-import { Badge } from './ui/badge';
 import TechsInput from './TechsInput';
 
 const CreateJobForm = () => {
@@ -39,7 +37,6 @@ const CreateJobForm = () => {
       mode: JobMode.FullTime,
       type: JobType.Presential,
       contract: JobContract.Permanent,
-      techs: '',
     },
   });
 
@@ -47,7 +44,8 @@ const CreateJobForm = () => {
   const { toast } = useToast();
   const router = useRouter();
   const { mutate, isPending } = useMutation({
-    mutationFn: (values: CreateAndEditJobType) => createJobAction(values),
+    mutationFn: (values: CreateAndEditJobType) =>
+      createJobAction({ ...values, techs }),
     onSuccess: (data) => {
       if (!data) {
         toast({
