@@ -72,7 +72,7 @@ const CreateJobForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="form-custom px-5 "
+        className="form-custom px-5 max-sm:w-screen"
       >
         <header className="header-custom">
           <h2 className="h2-custom">nuevo trabajo</h2>
@@ -140,6 +140,7 @@ const CreateJobForm = () => {
           </section>
 
           <section className="section-custom">
+            
             <CustomFormField
               name="note"
               control={form.control}
@@ -147,6 +148,7 @@ const CreateJobForm = () => {
               type="area"
               className="w-full "
             />
+            
           </section>
         </main>
         <footer className="flex justify-end">

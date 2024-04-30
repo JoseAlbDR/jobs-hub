@@ -9,8 +9,8 @@ import LightLogo from '@/components/LightLogo';
 
 export default function Home() {
   return (
-    <main className="flex flex-col  items-center">
-      <section className=" mx-auto flex">
+    <main className="flex flex-col  items-center justify-center min-h-screen max-w-[1440px] mx-auto">
+      <section className=" mx-auto flex justify-center">
         <article className="w-10/12 ">
           <DarkLogo />
           <LightLogo />
@@ -26,7 +26,7 @@ export default function Home() {
             progreso profesional!
           </p>
         </article>
-        <article className="w-1/2 flex justify-end">
+        <article className="w-1/2 flex justify-end max-lg:hidden">
           <Image
             src={LandingImgWhite}
             alt="landing img"
