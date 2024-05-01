@@ -23,9 +23,13 @@ import { getSingleJobAction, updateJobAction } from '@/utils/actions';
 import { Badge } from './ui/badge';
 import { useEffect, useState } from 'react';
 import TechsInput from './TechsInput';
+import Link from 'next/link';
+import DatePicker from './SelectDate';
+import GoogleCalendarLink from './GoogleCalendarLink';
 
 const EditJobForm = ({ jobId }: { jobId: string }) => {
   const [techs, setTechs] = useState<string[]>([]);
+  const [date, setDate] = useState<Date>(new Date());
 
   const { data } = useQuery({
     queryKey: ['job', jobId],
@@ -84,6 +88,8 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
     mutate(values);
   };
 
+  const watchStatus = form.watch('status');
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="form-custom px-5">
@@ -106,6 +112,12 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
               items={Object.values(JobStatus)}
               className="w-full md:w-1/3"
             />
+            {watchStatus === 'entrevista' && (
+              <div className="flex flex-col">
+                <DatePicker date={date} setDate={setDate} />
+                <GoogleCalendarLink date={date} job={data!} />
+              </div>
+            )}
           </section>
           <section className="section-custom">
             <CustomFormField
