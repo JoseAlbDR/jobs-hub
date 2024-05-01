@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-query';
 import React from 'react';
 
-const JobDetailPage = async ({ params }: { params: { id: string } }) => {
+const JobEditPage = async ({ params }: { params: { id: string } }) => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
@@ -22,4 +22,4 @@ const JobDetailPage = async ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default JobDetailPage;
+export default JobEditPage;
