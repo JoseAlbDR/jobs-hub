@@ -16,6 +16,7 @@ import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 import { useToast } from './ui/use-toast';
+import { IconCodePlus } from '@tabler/icons-react';
 
 interface TechInputProps {
   techs: string[];
@@ -56,9 +57,10 @@ const TechsInput = ({
   };
 
   return (
-    <div className="flex flex-col gap-3 items-start justify-center">
-      <FormLabel>Tecnologias</FormLabel>
-      <div className="flex gap-2">
+    <div className="flex flex-col gap-3 items-start justify-center w-full ">
+      <FormLabel>Tecnologías</FormLabel>
+      <div className="flex flex-col sm:flex-row gap-5 justify-between flex-wrap  w-full">
+        <div className='flex gap-2 items-baseline justify-start '>
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <Button
@@ -113,14 +115,18 @@ const TechsInput = ({
             </Command>
           </PopoverContent>
         </Popover>
+       
         <Button onClick={handleAddTech} type="button" className="btn-custom">
-          Añadir
+          <IconCodePlus stroke={1} />
         </Button>
+        </div>
         <div className="flex flex-wrap gap-4">
           {techs.map((tech, index) => (
             <Badge
               key={`${tech}-${index}`}
               onClick={() => handleDeleteTech(tech)}
+              variant={'canDeleted'}
+              
             >
               {tech}
             </Badge>
