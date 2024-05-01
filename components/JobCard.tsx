@@ -117,7 +117,7 @@ const JobCard = ({ job }: { job: JobData }) => {
           className={'border-2 border-primary-accent bg-transparent rounded-sm'}
           variant="outline"
         >
-          <Link href={`/jobs/${job.id}`}>Editar</Link>
+          <Link href={`/job/${job.id}/edit`}>Editar</Link>
         </Button>
         <DeleteJobBtn id={job.id} />
       </CardFooter>
