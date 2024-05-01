@@ -13,19 +13,32 @@ import {
 } from '@/utils/types';
 
 import { Button } from '@/components/ui/button';
-import { Form } from '@/components/ui/form';
+import { Form, FormLabel } from '@/components/ui/form';
 
 import { CustomFormField, CustomFormSelect } from './FormComponents';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { getSingleJobAction, updateJobAction } from '@/utils/actions';
+import { Badge } from './ui/badge';
+import { useEffect, useState } from 'react';
+import TechsInput from './TechsInput';
+import Link from 'next/link';
+import DatePicker from './SelectDate';
+import GoogleCalendarLink from './GoogleCalendarLink';
 
 const EditJobForm = ({ jobId }: { jobId: string }) => {
+  const [techs, setTechs] = useState<string[]>([]);
+  const [date, setDate] = useState<Date>();
+
   const { data } = useQuery({
     queryKey: ['job', jobId],
     queryFn: () => getSingleJobAction(jobId),
   });
+
+  useEffect(() => {
+    setTechs(data?.techs || []);
+  }, [data?.techs]);
 
   const form = useForm<CreateAndEditJobType>({
     resolver: zodResolver(createAndEditJobSchema),
@@ -47,7 +60,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
   const router = useRouter();
   const { mutate, isPending } = useMutation({
     mutationFn: (values: CreateAndEditJobType) =>
-      updateJobAction(jobId, values),
+      updateJobAction(jobId, { ...values, techs }),
     onSuccess: (data) => {
       if (!data) {
         toast({
@@ -75,6 +88,8 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
     mutate(values);
   };
 
+  const watchStatus = form.watch('status');
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="form-custom px-5">
@@ -97,6 +112,12 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
               items={Object.values(JobStatus)}
               className="w-full md:w-1/3"
             />
+            {watchStatus === 'entrevista' && (
+              <div className="flex flex-col">
+                <DatePicker date={date} setDate={setDate} />
+                <GoogleCalendarLink date={date} job={data!} />
+              </div>
+            )}
           </section>
           <section className="section-custom">
             <CustomFormField
@@ -116,6 +137,14 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
               control={form.control}
               label="URL"
               className="w-full"
+            />
+          </section>
+
+          <section className="section-custom">
+            <TechsInput
+              techs={techs}
+              setTechs={setTechs}
+              currentTechs={data?.techs || []}
             />
           </section>
 

@@ -16,6 +16,12 @@ import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 import { useToast } from './ui/use-toast';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from './ui/tooltip';
 import { IconCodePlus } from '@tabler/icons-react';
 
 interface TechInputProps {
@@ -123,12 +129,19 @@ const TechsInput = ({
         <div className="flex flex-wrap gap-4">
           {techs.map((tech, index) => (
             <Badge
-              key={`${tech}-${index}`}
               onClick={() => handleDeleteTech(tech)}
               variant={'canDeleted'}
               
+              key={`${tech}-${index}`}
             >
-              {tech}
+              <TooltipProvider delayDuration={0}>
+                <Tooltip>
+                  <TooltipTrigger>{tech}</TooltipTrigger>
+                  <TooltipContent sideOffset={20}>
+                    <p>Haz click para borrar</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </Badge>
           ))}
         </div>

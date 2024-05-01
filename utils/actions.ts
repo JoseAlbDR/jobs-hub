@@ -93,10 +93,15 @@ type GetAllJobsActionTypes = {
 };
 
 export const getUniqueTechTags = async () => {
+  const userId = authenticateAndRedirect();
+
   try {
     const uniqueTechs = await prisma.job.findMany({
       distinct: ['techs'],
       select: { techs: true },
+      where: {
+        userId,
+      },
     });
 
     return _.uniq(uniqueTechs.map((job) => job.techs).flat());
