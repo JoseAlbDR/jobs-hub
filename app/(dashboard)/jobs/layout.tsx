@@ -11,7 +11,7 @@ const layout = async ({ children }: PropsWithChildren) => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['jobs', '', 'todos', 'todos', 'todos', 'todos', 1],
+    queryKey: ['jobs', '', 'todos', 'todos', 'todos', 'todos', ['todas'], 1],
     queryFn: () => getAllJobsAction({}),
   });
 

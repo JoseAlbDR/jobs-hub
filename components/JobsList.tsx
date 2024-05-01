@@ -11,11 +11,11 @@ import { Skeleton } from './ui/skeleton';
 const JobsList = () => {
   const searchParams = useSearchParams();
 
-  const { search, status, mode, type, contract, currPage } =
+  const { search, status, mode, type, contract, currPage, techs } =
     getParamsFromUrl(searchParams);
 
   const { data, isPending } = useQuery({
-    queryKey: ['jobs', search, status, mode, type, contract, currPage],
+    queryKey: ['jobs', search, status, mode, type, contract, techs, currPage],
     queryFn: () =>
       getAllJobsAction({
         search,
@@ -24,6 +24,7 @@ const JobsList = () => {
         type,
         contract,
         page: currPage,
+        techs,
       }),
   });
 
