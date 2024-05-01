@@ -15,8 +15,8 @@ import {
 import { PopoverClose } from '@radix-ui/react-popover';
 
 interface DatePickerProps {
-  date: Date;
-  setDate: React.Dispatch<React.SetStateAction<Date>>;
+  date: Date | undefined;
+  setDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
 }
 
 const DatePicker = ({ date, setDate }: DatePickerProps) => {

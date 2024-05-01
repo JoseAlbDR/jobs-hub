@@ -3,11 +3,17 @@ import { Button } from './ui/button';
 import { generateGoogleCalendarLink } from '@/utils/generateGoogleCalendarLink';
 import { JobData } from '@/utils/types';
 
-const GoogleCalendarLink = ({ date, job }: { date: Date; job: JobData }) => {
-  const startDate = new Date(date);
+const GoogleCalendarLink = ({
+  date,
+  job,
+}: {
+  date: Date | undefined;
+  job: JobData;
+}) => {
+  const startDate = date ? new Date(date) : new Date();
   startDate.setHours(10, 0, 0, 0);
 
-  const endDate = new Date(date);
+  const endDate = new Date(startDate);
   endDate.setHours(11, 0, 0, 0);
 
   const url = generateGoogleCalendarLink({

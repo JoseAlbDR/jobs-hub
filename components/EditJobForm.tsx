@@ -29,7 +29,7 @@ import GoogleCalendarLink from './GoogleCalendarLink';
 
 const EditJobForm = ({ jobId }: { jobId: string }) => {
   const [techs, setTechs] = useState<string[]>([]);
-  const [date, setDate] = useState<Date>(new Date());
+  const [date, setDate] = useState<Date>();
 
   const { data } = useQuery({
     queryKey: ['job', jobId],
