@@ -13,12 +13,33 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Form } from './ui/form';
 import { CustomFormField, CustomFormSelect } from './FormComponents';
 import { Button } from './ui/button';
+import TechsInput from './TechsInput';
+import { useQuery } from '@tanstack/react-query';
+import { getUniqueTechTags } from '@/utils/actions';
+import { useErrorNotification } from '@/hooks/useErrorNotification';
+import { useState } from 'react';
 
 const SearchForm = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const params = Object.fromEntries(searchParams);
+  const [techs, setTechs] = useState<string[]>([]);
+
+  const {
+    data: currentTechs,
+    isError,
+    error,
+  } = useQuery({
+    queryFn: getUniqueTechTags,
+    queryKey: ['techs'],
+  });
+
+  useErrorNotification({
+    isError,
+    title: 'Error cargando tecnologias',
+    description: error?.message || 'Error desconocido',
+  });
 
   const form = useForm<SearchFormType>({
     resolver: zodResolver(searchFormSchema),
@@ -114,6 +135,14 @@ const SearchForm = () => {
                 items={Object.values(JobType)}
                 type="search"
                 className="w-full"
+              />
+            </article>
+            <article className="article-custom">
+              <TechsInput
+                techs={techs}
+                setTechs={setTechs}
+                currentTechs={currentTechs || []}
+                type="search"
               />
             </article>
             <article className={`article-custom gap-5 justify-end`}>

@@ -69,7 +69,9 @@ const TechsInput = ({
             >
               {tech
                 ? currentTechs.find((curr) => curr === tech)
-                : 'Añade tecnología'}
+                : `${
+                    type === 'create' ? 'Añade tecnología' : 'Busca tecnología'
+                  }`}
               <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>
