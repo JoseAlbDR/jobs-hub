@@ -115,6 +115,13 @@ const JobCard = ({ job }: { job: JobData }) => {
         <Button
           asChild
           className={'border-2 border-primary-accent bg-transparent rounded-sm'}
+          variant="link"
+        >
+          <Link href={`/job/${job.id}/detail`}>Detalle</Link>
+        </Button>
+        <Button
+          asChild
+          className={'border-2 border-primary-accent bg-transparent rounded-sm'}
           variant="outline"
         >
           <Link href={`/job/${job.id}/edit`}>Editar</Link>

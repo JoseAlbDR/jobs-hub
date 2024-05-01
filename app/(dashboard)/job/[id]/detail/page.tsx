@@ -1,4 +1,5 @@
 import EditJobForm from '@/components/EditJobForm';
+import JobDetail from '@/components/JobDetail';
 import { getSingleJobAction } from '@/utils/actions';
 import {
   HydrationBoundary,
@@ -7,7 +8,7 @@ import {
 } from '@tanstack/react-query';
 import React from 'react';
 
-const JobEditPage = async ({ params }: { params: { id: string } }) => {
+const JobDetailPage = async ({ params }: { params: { id: string } }) => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
@@ -17,9 +18,9 @@ const JobEditPage = async ({ params }: { params: { id: string } }) => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <EditJobForm jobId={params.id} />
+      <JobDetail jobId={params.id} />
     </HydrationBoundary>
   );
 };
 
-export default JobEditPage;
+export default JobDetailPage;

@@ -84,11 +84,6 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
     mutate(values);
   };
 
-  const handleDeleteTech = (tech: string) => {
-    const newTechs = techs.filter((curr) => tech !== curr);
-    setTechs(newTechs);
-  };
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="form-custom px-5">
