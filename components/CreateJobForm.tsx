@@ -22,6 +22,7 @@ import { createJobAction, getUniqueTechTags } from '@/utils/actions';
 import { IconFilePlus } from '@tabler/icons-react';
 import { useState } from 'react';
 import TechsInput from './TechsInput';
+import { useErrorNotification } from '@/hooks/useErrorNotification';
 
 const CreateJobForm = () => {
   const [techs, setTechs] = useState<string[]>([]);
@@ -44,9 +45,19 @@ const CreateJobForm = () => {
   const { toast } = useToast();
   const router = useRouter();
 
-  const { data: currentTechs } = useQuery({
+  const {
+    data: currentTechs,
+    isError,
+    error,
+  } = useQuery({
     queryFn: getUniqueTechTags,
     queryKey: ['techs'],
+  });
+
+  useErrorNotification({
+    isError,
+    title: 'Error cargando tecnologias',
+    description: error?.message || 'Error desconocido',
   });
 
   const { mutate, isPending } = useMutation({

@@ -89,6 +89,7 @@ type GetAllJobsActionTypes = {
   limit?: number;
   page?: number;
   contract?: JobContract;
+  techs?: string[];
 };
 
 export const getUniqueTechTags = async () => {
@@ -101,6 +102,7 @@ export const getUniqueTechTags = async () => {
     return _.uniq(uniqueTechs.map((job) => job.techs).flat());
   } catch (error) {
     console.log(error);
+    return [];
   }
 };
 
@@ -110,6 +112,7 @@ export const getAllJobsAction = async ({
   mode,
   type,
   contract,
+  techs,
   page = 1,
   limit = 10,
 }: GetAllJobsActionTypes): Promise<{
@@ -147,6 +150,15 @@ export const getAllJobsAction = async ({
         ],
       };
 
+    if (techs && techs.length > 0 && !techs.includes('todas')) {
+      whereClause = {
+        ...whereClause,
+        techs: {
+          hasSome: techs,
+        },
+      };
+    }
+
     if (status && status !== 'todos')
       whereClause = {
         ...whereClause,
@@ -170,8 +182,6 @@ export const getAllJobsAction = async ({
         ...whereClause,
         contract,
       };
-
-    console.log({ whereClause });
 
     const skip = (page - 1) * limit;
 

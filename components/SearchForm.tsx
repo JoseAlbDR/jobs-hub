@@ -13,12 +13,35 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Form } from './ui/form';
 import { CustomFormField, CustomFormSelect } from './FormComponents';
 import { Button } from './ui/button';
+import TechsInput from './TechsInput';
+import { useQuery } from '@tanstack/react-query';
+import { getUniqueTechTags } from '@/utils/actions';
+import { useErrorNotification } from '@/hooks/useErrorNotification';
+import { useEffect, useState } from 'react';
 
 const SearchForm = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const params = Object.fromEntries(searchParams);
+  const [techs, setTechs] = useState<string[]>([]);
+
+  const {
+    data: currentTechs,
+    isError,
+    error,
+  } = useQuery({
+    queryFn: getUniqueTechTags,
+    queryKey: ['techs'],
+  });
+
+  console.log({ error });
+
+  useErrorNotification({
+    isError,
+    title: 'Error cargando tecnologias',
+    description: error?.message || 'Error desconocido',
+  });
 
   const form = useForm<SearchFormType>({
     resolver: zodResolver(searchFormSchema),
@@ -30,6 +53,11 @@ const SearchForm = () => {
       contract: (params?.contract as JobContract) || JobContract.All,
     },
   });
+
+  useEffect(() => {
+    if (params.techs?.split('-').includes('todas')) return;
+    setTechs(params.techs?.split('-') || []);
+  }, [params.techs]);
 
   const onSubmit = ({
     search,
@@ -44,6 +72,7 @@ const SearchForm = () => {
     newParams.set('type', type);
     newParams.set('status', status);
     newParams.set('contract', contract);
+    newParams.set('techs', techs.join('-') || 'todas');
 
     router.push(`${pathname}?${newParams.toString()}`);
   };
@@ -55,12 +84,14 @@ const SearchForm = () => {
     resetParams.set('type', 'todos');
     resetParams.set('status', 'todos');
     resetParams.set('contract', 'todos');
+    resetParams.set('techs', 'todas');
 
     form.setValue('search', '');
     form.setValue('mode', JobMode.All);
     form.setValue('type', JobType.All);
     form.setValue('status', JobStatus.All);
     form.setValue('contract', JobContract.All);
+    setTechs([]);
 
     router.push(`${pathname}?${resetParams.toString()}`);
   };
@@ -114,6 +145,14 @@ const SearchForm = () => {
                 items={Object.values(JobType)}
                 type="search"
                 className="w-full"
+              />
+            </article>
+            <article className="article-custom">
+              <TechsInput
+                techs={techs}
+                setTechs={setTechs}
+                currentTechs={currentTechs || []}
+                type="search"
               />
             </article>
             <article className={`article-custom gap-5 justify-end`}>

@@ -15,19 +15,37 @@ import {
 import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { CaretSortIcon } from '@radix-ui/react-icons';
+import { useToast } from './ui/use-toast';
 
 interface TechInputProps {
   techs: string[];
   setTechs: Dispatch<SetStateAction<string[]>>;
   currentTechs: string[];
+  type?: string;
 }
 
-const TechsInput = ({ techs, setTechs, currentTechs }: TechInputProps) => {
+const TechsInput = ({
+  techs,
+  setTechs,
+  currentTechs,
+  type = 'create',
+}: TechInputProps) => {
   const [tech, setTech] = useState<string>('');
   const [open, setOpen] = useState(false);
+  const { toast } = useToast();
 
   const handleAddTech = () => {
-    if (tech === '' || techs.includes(tech) || techs.length >= 6) return;
+    if (tech === '' || techs.includes(tech)) {
+      setTech('');
+      return;
+    }
+
+    if (techs.length >= 6)
+      return toast({
+        description: 'No se pueden añadir más de 6 tecnologías',
+        variant: 'destructive',
+      });
+
     setTechs((techs) => [...techs, tech]);
     setTech('');
   };
@@ -51,16 +69,23 @@ const TechsInput = ({ techs, setTechs, currentTechs }: TechInputProps) => {
             >
               {tech
                 ? currentTechs.find((curr) => curr === tech)
-                : 'Añade tecnología'}
+                : `${
+                    type === 'create' ? 'Añade tecnología' : 'Busca tecnología'
+                  }`}
               <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>
           <PopoverContent>
             <Command>
-              <CommandInput
-                placeholder="Busca Tecnología"
-                onChangeCapture={(e) => setTech(e.currentTarget.value)}
-              />
+              {type === 'create' ? (
+                <CommandInput
+                  placeholder="Añade Tecnología"
+                  onChangeCapture={(e) => setTech(e.currentTarget.value)}
+                />
+              ) : (
+                <CommandInput placeholder="Busca Tecnología" />
+              )}
+
               <CommandList>
                 <CommandGroup>
                   {currentTechs.map((curr) => {

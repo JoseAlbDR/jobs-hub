@@ -10,6 +10,7 @@ export const getParamsFromUrl = (
   type: JobType;
   contract: JobContract;
   currPage: number;
+  techs: string[];
 } => {
   const params = Object.fromEntries(searchParams);
   const search = params.search || '';
@@ -18,6 +19,7 @@ export const getParamsFromUrl = (
   const type = (params.type || 'todos') as JobType;
   const contract = (params.contract || 'todos') as JobContract;
   const currPage = +params.page || 1;
+  const techs = params.techs?.split('-') || ['todas'];
 
-  return { search, status, mode, type, contract, currPage };
+  return { search, status, mode, type, contract, currPage, techs };
 };
