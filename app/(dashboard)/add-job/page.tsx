@@ -13,6 +13,7 @@ const AddJobPage = async () => {
     queryKey: ['techs'],
     queryFn: () => getUniqueTechTags(),
   });
+  
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <CreateJobForm />

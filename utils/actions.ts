@@ -101,6 +101,7 @@ export const getUniqueTechTags = async () => {
     return _.uniq(uniqueTechs.map((job) => job.techs).flat());
   } catch (error) {
     console.log(error);
+    return [];
   }
 };
 
@@ -170,8 +171,6 @@ export const getAllJobsAction = async ({
         ...whereClause,
         contract,
       };
-
-    console.log({ whereClause });
 
     const skip = (page - 1) * limit;
 

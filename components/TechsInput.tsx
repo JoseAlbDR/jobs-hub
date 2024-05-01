@@ -21,9 +21,15 @@ interface TechInputProps {
   techs: string[];
   setTechs: Dispatch<SetStateAction<string[]>>;
   currentTechs: string[];
+  type?: string;
 }
 
-const TechsInput = ({ techs, setTechs, currentTechs }: TechInputProps) => {
+const TechsInput = ({
+  techs,
+  setTechs,
+  currentTechs,
+  type = 'create',
+}: TechInputProps) => {
   const [tech, setTech] = useState<string>('');
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
@@ -69,10 +75,15 @@ const TechsInput = ({ techs, setTechs, currentTechs }: TechInputProps) => {
           </PopoverTrigger>
           <PopoverContent>
             <Command>
-              <CommandInput
-                placeholder="Busca Tecnología"
-                onChangeCapture={(e) => setTech(e.currentTarget.value)}
-              />
+              {type === 'create' ? (
+                <CommandInput
+                  placeholder="Añade Tecnología"
+                  onChangeCapture={(e) => setTech(e.currentTarget.value)}
+                />
+              ) : (
+                <CommandInput placeholder="Busca Tecnología" />
+              )}
+
               <CommandList>
                 <CommandGroup>
                   {currentTechs.map((curr) => {
