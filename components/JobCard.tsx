@@ -17,6 +17,7 @@ import { CalendarDaysIcon, MapPin } from 'lucide-react';
 import { Badge } from './ui/badge';
 import {
   IconBuildingSkyscraper,
+  IconChevronsRight,
   IconClockHour2,
   IconFileCertificate,
   IconFileDescription,
@@ -115,18 +116,10 @@ const JobCard = ({ job }: { job: JobData }) => {
         <Button
           asChild
           className={'border-2 border-primary-accent bg-transparent rounded-sm'}
-          variant="link"
-        >
-          <Link href={`/job/${job.id}/detail`}>Detalle</Link>
-        </Button>
-        <Button
-          asChild
-          className={'border-2 border-primary-accent bg-transparent rounded-sm'}
           variant="outline"
         >
-          <Link href={`/job/${job.id}/edit`}>Editar</Link>
+          <Link href={`/job/${job.id}/detail`}>Ver más <IconChevronsRight stroke={1} className='stroke-primary-accent'/></Link>
         </Button>
-        <DeleteJobBtn id={job.id} />
       </CardFooter>
     </Card>
   );
