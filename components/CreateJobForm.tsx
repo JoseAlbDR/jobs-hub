@@ -13,7 +13,7 @@ import {
 } from '@/utils/types';
 
 import { Button } from '@/components/ui/button';
-import { Form, FormItem, FormLabel } from '@/components/ui/form';
+import { Form } from '@/components/ui/form';
 import { CustomFormField, CustomFormSelect } from './FormComponents';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
@@ -23,9 +23,12 @@ import { IconFilePlus } from '@tabler/icons-react';
 import { useState } from 'react';
 import TechsInput from './TechsInput';
 import { useErrorNotification } from '@/hooks/useErrorNotification';
+import DatePicker from './SelectDate';
+import GoogleCalendarLink from './GoogleCalendarLink';
 
 const CreateJobForm = () => {
   const [techs, setTechs] = useState<string[]>([]);
+  const [date, setDate] = useState<Date>();
 
   const form = useForm<CreateAndEditJobType>({
     resolver: zodResolver(createAndEditJobSchema),
@@ -93,6 +96,9 @@ const CreateJobForm = () => {
     mutate(values);
   };
 
+  const watchStatus = form.watch('status');
+  const data = form.watch();
+
   return (
     <Form {...form}>
       <form
@@ -117,6 +123,12 @@ const CreateJobForm = () => {
               items={Object.values(JobStatus)}
               className="w-full md:w-1/3"
             />
+            {watchStatus === 'entrevista' && (
+              <div className="flex flex-col">
+                <DatePicker date={date} setDate={setDate} />
+                <GoogleCalendarLink date={date} job={data!} />
+              </div>
+            )}
           </section>
           <section className="section-custom">
             <CustomFormField

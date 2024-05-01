@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { generateGoogleCalendarLink } from '@/utils/generateGoogleCalendarLink';
-import { JobData } from '@/utils/types';
+import { CreateAndEditJobType, JobData } from '@/utils/types';
 
 const GoogleCalendarLink = ({
   date,
   job,
 }: {
   date: Date | undefined;
-  job: JobData;
+  job: JobData | CreateAndEditJobType | null;
 }) => {
   const startDate = date ? new Date(date) : new Date();
   startDate.setHours(10, 0, 0, 0);
@@ -17,9 +17,11 @@ const GoogleCalendarLink = ({
   endDate.setHours(11, 0, 0, 0);
 
   const url = generateGoogleCalendarLink({
-    title: `${job.position} en ${job.company}`,
-    description: job.note || '',
-    location: job.location,
+    title: `${job?.position || 'Puesto desconocido'} en ${
+      job?.company || 'empresa desconocida'
+    } `,
+    description: job?.note || 'Sin detalles',
+    location: job?.location || 'Desconocido',
     startDate,
     endDate,
   });
