@@ -8,7 +8,7 @@ const layout = ({ children }: PropsWithChildren) => {
       <div className="hidden lg:block lg:col-span-1 lg:min-h-screen">
         <Sidebar />
       </div>
-      <div className="lg:col-span-4">
+      <div className="lg:col-span-4 max-lg:w-screen">
         <Navbar />
         <div className="py-0 px-0 sm:px-8 lg:px-5 ">{children}</div>
       </div>
