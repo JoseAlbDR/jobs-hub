@@ -57,11 +57,11 @@ const CreateJobForm = () => {
     queryKey: ['techs'],
   });
 
-  useErrorNotification({
-    isError,
-    title: 'Error cargando tecnologias',
-    description: error?.message || 'Error desconocido',
-  });
+  // useErrorNotification({
+  //   isError,
+  //   title: 'Error cargando tecnologias',
+  //   description: error?.message || 'Error desconocido',
+  // });
 
   const { mutate, isPending } = useMutation({
     mutationFn: (values: CreateAndEditJobType) =>
