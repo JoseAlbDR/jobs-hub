@@ -7,7 +7,7 @@ import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'JobsHub',
   description: 'Aplicación para gestionar tus aplicaciones a ofertas de empleo',
   keywords: [
@@ -15,6 +15,7 @@ export const metadata = {
     'empleo',
     'aplicaciones',
     'gestión de empleo',
+    'organizacion',
     'Next.js',
     'Prisma',
     'PostgreSQL',
@@ -22,18 +23,11 @@ export const metadata = {
     'Tailwind CSS',
     'TypeScript',
   ],
-  author: 'Jose Alberto Delgado, Juan Manuel Acosta',
+  authors: [
+    { name: 'Jose Alberto Delgado', url: 'https://www.jadero.dev' },
+    { name: 'Juan Manuel Acosta' },
+  ],
   robots: 'index, follow',
-  ogTitle:
-    'JobsHub - Aplicación para gestionar tus aplicaciones a ofertas de empleo',
-  ogDescription:
-    'JobsHub es una aplicación para gestionar tus búsquedas de empleo de manera eficiente. Registra tus aplicaciones, haz seguimiento de su estado y obtén estadísticas útiles sobre tu progreso.',
-  ogType: 'website',
-  ogUrl: 'https://jobshub.jjteams.dev',
-  twitterTitle:
-    'JobsHub - Aplicación para gestionar tus aplicaciones a ofertas de empleo',
-  twitterDescription:
-    'JobsHub es una aplicación para gestionar tus búsquedas de empleo de manera eficiente. Registra tus aplicaciones, haz seguimiento de su estado y obtén estadísticas útiles sobre tu progreso.',
 };
 
 export default function RootLayout({
