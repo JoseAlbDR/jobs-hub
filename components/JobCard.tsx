@@ -107,7 +107,11 @@ const JobCard = ({ job }: { job: JobData }) => {
 
         <section className="flex flex-wrap gap-2">
           {job.techs.map((tech, index) => {
-            return <Badge key={`${tech}-${index}`}>{tech}</Badge>;
+            return (
+              <Badge key={`${tech}-${index}`} className="text-sm">
+                {tech}
+              </Badge>
+            );
           })}
         </section>
       </CardContent>
@@ -118,7 +122,10 @@ const JobCard = ({ job }: { job: JobData }) => {
           className={'border-2 border-primary-accent bg-transparent rounded-sm'}
           variant="outline"
         >
-          <Link href={`/job/${job.id}/detail`}>Ver más <IconChevronsRight stroke={1} className='stroke-primary-accent'/></Link>
+          <Link href={`/job/${job.id}/detail`}>
+            Ver más{' '}
+            <IconChevronsRight stroke={1} className="stroke-primary-accent" />
+          </Link>
         </Button>
       </CardFooter>
     </Card>

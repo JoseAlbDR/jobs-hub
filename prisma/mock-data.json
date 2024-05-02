@@ -9,7 +9,12 @@
     "createdAt": "2024-01-23T12:15:00Z",
     "link": "https://www.prconnect.com",
     "type": "remoto",
-    "note": "PRConnect gestiona la comunicación estratégica."
+    "note": "PRConnect gestiona la comunicación estratégica.",
+    "techs": [
+      "Social Media Management",
+      "Public Relations",
+      "Content Marketing"
+    ]
   },
   {
     "position": "Project Coordinator",
@@ -21,7 +26,8 @@
     "createdAt": "2024-01-30T14:35:00Z",
     "link": "https://www.projectpro.com",
     "type": "hibrido",
-    "note": "ProjectPro coordina proyectos de manera eficiente."
+    "note": "ProjectPro coordina proyectos de manera eficiente.",
+    "techs": ["Project Management", "Agile Methodologies", "Task Tracking"]
   },
   {
     "position": "Technical Writer",
@@ -33,7 +39,8 @@
     "createdAt": "2024-02-06T16:40:00Z",
     "link": "https://www.techtales.com",
     "type": "presencial",
-    "note": "TechTales simplifica la documentación técnica."
+    "note": "TechTales simplifica la documentación técnica.",
+    "techs": ["Technical Writing", "Documentation Tools", "Editing"]
   },
   {
     "position": "Product Designer",
@@ -45,7 +52,8 @@
     "createdAt": "2024-02-13T10:00:00Z",
     "link": "https://www.productpro.com",
     "type": "remoto",
-    "note": "ProductPro crea productos centrados en el usuario."
+    "note": "ProductPro crea productos centrados en el usuario.",
+    "techs": ["UI/UX Design", "Prototyping Tools", "User Research"]
   },
   {
     "position": "Customer Experience Manager",
@@ -57,7 +65,12 @@
     "createdAt": "2024-02-20T13:20:00Z",
     "link": "https://www.experiencex.com",
     "type": "hibrido",
-    "note": "ExperienceX mejora la experiencia del cliente."
+    "note": "ExperienceX mejora la experiencia del cliente.",
+    "techs": [
+      "Customer Relationship Management",
+      "Customer Feedback Analysis",
+      "User Experience Optimization"
+    ]
   },
   {
     "position": "Financial Advisor",
@@ -69,7 +82,12 @@
     "createdAt": "2024-02-27T15:30:00Z",
     "link": "https://www.financefriends.com",
     "type": "presencial",
-    "note": "FinanceFriends ofrece asesoramiento financiero personalizado."
+    "note": "FinanceFriends ofrece asesoramiento financiero personalizado.",
+    "techs": [
+      "Financial Planning Software",
+      "Investment Analysis",
+      "Risk Management"
+    ]
   },
   {
     "position": "HR Generalist",
@@ -81,7 +99,12 @@
     "createdAt": "2024-03-05T09:55:00Z",
     "link": "https://www.hrheroes.com",
     "type": "remoto",
-    "note": "HRHeroes se enfoca en el desarrollo del talento humano."
+    "note": "HRHeroes se enfoca en el desarrollo del talento humano.",
+    "techs": [
+      "Human Resource Information Systems",
+      "Recruitment Strategies",
+      "Employee Relations"
+    ]
   },
   {
     "position": "Marketing Coordinator",
@@ -93,7 +116,8 @@
     "createdAt": "2024-03-12T13:10:00Z",
     "link": "https://www.marketmaster.com",
     "type": "hibrido",
-    "note": "MarketMaster implementa estrategias de marketing innovadoras."
+    "note": "MarketMaster implementa estrategias de marketing innovadoras.",
+    "techs": ["Digital Marketing", "Marketing Analytics", "Content Strategy"]
   },
   {
     "position": "Sales Analyst",
@@ -105,7 +129,8 @@
     "createdAt": "2024-03-19T15:15:00Z",
     "link": "https://www.salessavvy.com",
     "type": "presencial",
-    "note": "SalesSavvy analiza datos para impulsar las ventas."
+    "note": "SalesSavvy analiza datos para impulsar las ventas.",
+    "techs": ["Salesforce", "Data Visualization", "Sales Forecasting"]
   },
   {
     "position": "Logistics Coordinator",
@@ -117,7 +142,12 @@
     "createdAt": "2024-03-26T10:20:00Z",
     "link": "https://www.logipro.com",
     "type": "remoto",
-    "note": "LogiPro optimiza la cadena de suministro."
+    "note": "LogiPro optimiza la cadena de suministro.",
+    "techs": [
+      "Supply Chain Management Software",
+      "Inventory Optimization",
+      "Route Planning"
+    ]
   },
   {
     "position": "IT Consultant",
@@ -129,7 +159,12 @@
     "createdAt": "2024-04-02T13:35:00Z",
     "link": "https://www.techconsult.com",
     "type": "hibrido",
-    "note": "TechConsult ofrece soluciones tecnológicas personalizadas."
+    "note": "TechConsult ofrece soluciones tecnológicas personalizadas.",
+    "techs": [
+      "IT Infrastructure Management",
+      "Cloud Computing",
+      "Cybersecurity"
+    ]
   },
   {
     "position": "Research Assistant",
@@ -141,462 +176,41 @@
     "createdAt": "2024-04-09T15:40:00Z",
     "link": "https://www.researchrise.com",
     "type": "presencial",
-    "note": "ResearchRise contribuye a la investigación innovadora."
+    "note": "ResearchRise impulsa la investigación innovadora.",
+    "techs": ["Research Methodologies", "Data Analysis", "Literature Review"]
   },
   {
     "position": "Legal Assistant",
-    "company": "LegalSupport",
-    "location": "Houston",
-    "status": "entrevista",
-    "mode": "completa",
-    "contract": "freelance",
-    "createdAt": "2024-04-16T10:45:00Z",
-    "link": "https://www.legalsupport.com",
-    "type": "remoto",
-    "note": "LegalSupport proporciona asistencia legal especializada."
-  },
-  {
-    "position": "Project Manager",
-    "company": "Viva",
-    "location": "Nanam",
-    "status": "rechazado",
-    "mode": "completa",
-    "contract": "parcial",
-    "createdAt": "2024-01-14T08:22:17Z",
-    "link": "https://www.viva.com",
-    "type": "remoto",
-    "note": "Viva tiene un equipo dinámico y colaborativo."
-  },
-  {
-    "position": "Nurse Practicioner",
-    "company": "Wordware",
-    "location": "Odivelas",
-    "status": "entrevista",
-    "mode": "completa",
-    "contract": "parcial",
-    "createdAt": "2023-11-24T21:35:16Z",
-    "link": "https://www.wordware.com",
-    "type": "presencial",
-    "note": "Wordware ofrece oportunidades de crecimiento profesional."
-  },
-  {
-    "position": "GIS Technical Architect",
-    "company": "Twiyo",
-    "location": "Dejen",
-    "status": "rechazado",
+    "company": "LegalEase",
+    "location": "Washington D.C.",
+    "status": "pendiente",
     "mode": "completa",
     "contract": "practicas",
-    "createdAt": "2023-12-28T15:49:23Z",
-    "link": "https://www.twiyo.com",
+    "createdAt": "2024-04-16T11:00:00Z",
+    "link": "https://www.legalease.com",
     "type": "remoto",
-    "note": "Twiyo tiene un equipo técnico altamente competente."
-  },
-  {
-    "position": "Engineer IV",
-    "company": "Roomm",
-    "location": "Skinnskatteberg",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "practicas",
-    "createdAt": "2024-01-06T03:27:58Z",
-    "link": "https://www.roomm.com",
-    "type": "presencial",
-    "note": "Se ha escuchado que Roomm ofrece buenos beneficios a sus empleados."
-  },
-  {
-    "position": "VP Accounting",
-    "company": "Avamba",
-    "location": "Khuma",
-    "status": "entrevista",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2023-10-29T16:17:08Z",
-    "link": "https://www.avamba.com",
-    "type": "hibrido",
-    "note": "Avamba es conocida por su cultura empresarial inclusiva."
-  },
-  {
-    "position": "Senior Quality Engineer",
-    "company": "Nlounge",
-    "location": "Darłowo",
-    "status": "rechazado",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2023-10-25T11:58:39Z",
-    "link": "https://www.nlounge.com",
-    "type": "remoto",
-    "note": "Nlounge ofrece un ambiente de trabajo colaborativo."
-  },
-  {
-    "position": "Geological Engineer",
-    "company": "Blogtags",
-    "location": "Sung Noen",
-    "status": "entrevista",
-    "mode": "parcial",
-    "contract": "parcial",
-    "createdAt": "2023-11-12T17:22:55Z",
-    "link": "https://www.blogtags.com",
-    "type": "hibrido",
-    "note": "Blogtags tiene una sólida reputación en la industria."
-  },
-  {
-    "position": "VP Product Management",
-    "company": "Youbridge",
-    "location": "Almeirim",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "practicas",
-    "createdAt": "2023-11-09T09:35:41Z",
-    "link": "https://www.youbridge.com",
-    "type": "presencial",
-    "note": "Se dice que Youbridge ofrece excelentes oportunidades de desarrollo profesional."
-  },
-  {
-    "position": "VP Product Management",
-    "company": "Meejo",
-    "location": "Werota",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "freelance",
-    "createdAt": "2023-10-19T07:47:23Z",
-    "link": "https://www.meejo.com",
-    "type": "presencial",
-    "note": "Meejo es conocida por su cultura de innovación."
-  },
-  {
-    "position": "Marketing Assistant",
-    "company": "Kayveo",
-    "location": "Torrevieja",
-    "status": "rechazado",
-    "mode": "parcial",
-    "contract": "indefinido",
-    "createdAt": "2023-09-14T16:42:31Z",
-    "link": "https://www.kayveo.com",
-    "type": "remoto",
-    "note": "Kayveo ofrece oportunidades de aprendizaje continuo."
-  },
-  {
-    "position": "Software Consultant",
-    "company": "Yodoo",
-    "location": "Kieta",
-    "status": "rechazado",
-    "mode": "completa",
-    "contract": "freelance",
-    "createdAt": "2023-07-26T20:28:17Z",
-    "link": "https://www.yodoo.com",
-    "type": "remoto",
-    "note": "Yodoo tiene un equipo dedicado y apasionado."
-  },
-  {
-    "position": "Sales Representative",
-    "company": "Zooxo",
-    "location": "Barranca",
-    "status": "entrevista",
-    "mode": "completa",
-    "contract": "parcial",
-    "createdAt": "2023-10-09T12:15:03Z",
-    "link": "https://www.zooxo.com",
-    "type": "presencial",
-    "note": "Zooxo ofrece un ambiente de trabajo dinámico y desafiante."
-  },
-  {
-    "position": "Structural Analysis Engineer",
-    "company": "Leenti",
-    "location": "Borova",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "practicas",
-    "createdAt": "2023-09-28T07:59:49Z",
-    "link": "https://www.leenti.com",
-    "type": "hibrido",
-    "note": "Leenti es conocida por su enfoque en la innovación tecnológica."
-  },
-  {
-    "position": "Marketing Director",
-    "company": "GloboTech",
-    "location": "San Francisco",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-22T10:00:00Z",
-    "link": "https://www.globotech.com",
-    "type": "remoto",
-    "note": "GloboTech es líder en soluciones de marketing digital."
-  },
-  {
-    "position": "Software Engineer",
-    "company": "CodeCraft",
-    "location": "New York",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-22T11:30:00Z",
-    "link": "https://www.codecraft.com",
-    "type": "presencial",
-    "note": "CodeCraft desarrolla software innovador para diversas industrias."
-  },
-  {
-    "position": "Data Analyst",
-    "company": "DataDynamics",
-    "location": "Los Angeles",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "practicas",
-    "createdAt": "2024-04-22T13:45:00Z",
-    "link": "https://www.datadynamics.com",
-    "type": "hibrido",
-    "note": "DataDynamics ofrece análisis de datos avanzados para optimizar decisiones empresariales."
-  },
-  {
-    "position": "Human Resources Manager",
-    "company": "TalentTrek",
-    "location": "Chicago",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-22T14:20:00Z",
-    "link": "https://www.talenttrek.com",
-    "type": "remoto",
-    "note": "TalentTrek se especializa en reclutamiento y gestión del talento."
-  },
-  {
-    "position": "Graphic Designer",
-    "company": "DesignGenius",
-    "location": "Seattle",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "freelance",
-    "createdAt": "2024-04-22T15:10:00Z",
-    "link": "https://www.designgenius.com",
-    "type": "presencial",
-    "note": "DesignGenius crea diseños innovadores para marcas reconocidas."
+    "note": "LegalEase ofrece asistencia legal especializada.",
+    "techs": [
+      "Legal Research",
+      "Document Management",
+      "Case Management Systems"
+    ]
   },
   {
     "position": "Customer Support Specialist",
-    "company": "SupportPro",
-    "location": "Austin",
+    "company": "Supportive",
+    "location": "Atlanta",
     "status": "pendiente",
-    "mode": "completa",
+    "mode": "parcial",
     "contract": "indefinido",
-    "createdAt": "2024-04-22T16:55:00Z",
-    "link": "https://www.supportpro.com",
-    "type": "remoto",
-    "note": "SupportPro ofrece un excelente servicio de atención al cliente."
-  },
-  {
-    "position": "Financial Analyst",
-    "company": "Financio",
-    "location": "Miami",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-22T18:25:00Z",
-    "link": "https://www.financio.com",
+    "createdAt": "2024-04-23T12:50:00Z",
+    "link": "https://www.supportive.com",
     "type": "hibrido",
-    "note": "Financio proporciona análisis financiero para tomar decisiones estratégicas."
-  },
-  {
-    "position": "Content Writer",
-    "company": "WordSmith",
-    "location": "Denver",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "freelance",
-    "createdAt": "2024-04-22T19:40:00Z",
-    "link": "https://www.wordsmith.com",
-    "type": "presencial",
-    "note": "WordSmith crea contenido cautivador para empresas en crecimiento."
-  },
-  {
-    "position": "IT Support Specialist",
-    "company": "TechHelp",
-    "location": "San Diego",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-22T20:15:00Z",
-    "link": "https://www.techhelp.com",
-    "type": "remoto",
-    "note": "TechHelp ofrece soluciones de soporte técnico de alta calidad."
-  },
-  {
-    "position": "Sales Manager",
-    "company": "SalesGenius",
-    "location": "Dallas",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-22T21:30:00Z",
-    "link": "https://www.salesgenius.com",
-    "type": "hibrido",
-    "note": "SalesGenius lidera equipos de ventas para alcanzar objetivos ambiciosos."
-  },
-  {
-    "position": "Public Relations Specialist",
-    "company": "PRMaster",
-    "location": "Houston",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "freelance",
-    "createdAt": "2024-04-22T22:45:00Z",
-    "link": "https://www.prmaster.com",
-    "type": "presencial",
-    "note": "PRMaster desarrolla estrategias de relaciones públicas efectivas."
-  },
-  {
-    "position": "Project Manager",
-    "company": "ProjectPro",
-    "location": "Boston",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-22T23:55:00Z",
-    "link": "https://www.projectpro.com",
-    "type": "remoto",
-    "note": "ProjectPro gestiona proyectos de manera eficiente y rentable."
-  },
-  {
-    "position": "UX Designer",
-    "company": "UXCreative",
-    "location": "Seattle",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T01:10:00Z",
-    "link": "https://www.uxcreative.com",
-    "type": "presencial",
-    "note": "UXCreative crea experiencias digitales intuitivas y atractivas."
-  },
-  {
-    "position": "Customer Success Manager",
-    "company": "SuccessHub",
-    "location": "San Francisco",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T02:25:00Z",
-    "link": "https://www.successhub.com",
-    "type": "remoto",
-    "note": "SuccessHub se dedica a garantizar la satisfacción del cliente."
-  },
-  {
-    "position": "Digital Marketing Specialist",
-    "company": "DigitalEdge",
-    "location": "New York",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T03:40:00Z",
-    "link": "https://www.digitaledge.com",
-    "type": "hibrido",
-    "note": "DigitalEdge implementa estrategias innovadoras de marketing digital."
-  },
-  {
-    "position": "Software Tester",
-    "company": "TestTech",
-    "location": "Los Angeles",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "freelance",
-    "createdAt": "2024-04-23T04:55:00Z",
-    "link": "https://www.testtech.com",
-    "type": "presencial",
-    "note": "TestTech se especializa en pruebas de software para garantizar la calidad del producto."
-  },
-  {
-    "position": "Financial Consultant",
-    "company": "FinanceWise",
-    "location": "Chicago",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T06:10:00Z",
-    "link": "https://www.financewise.com",
-    "type": "remoto",
-    "note": "FinanceWise ofrece asesoramiento financiero personalizado para individuos y empresas."
-  },
-  {
-    "position": "IT Project Manager",
-    "company": "TechPro",
-    "location": "Seattle",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T07:25:00Z",
-    "link": "https://www.techpro.com",
-    "type": "hibrido",
-    "note": "TechPro lidera proyectos de TI para implementaciones exitosas."
-  },
-  {
-    "position": "Social Media Manager",
-    "company": "SocialBuzz",
-    "location": "Austin",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T08:40:00Z",
-    "link": "https://www.socialbuzz.com",
-    "type": "presencial",
-    "note": "SocialBuzz gestiona estrategias de redes sociales para aumentar la visibilidad de la marca."
-  },
-  {
-    "position": "Technical Support Engineer",
-    "company": "SupportGenius",
-    "location": "Miami",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T09:55:00Z",
-    "link": "https://www.supportgenius.com",
-    "type": "remoto",
-    "note": "SupportGenius proporciona soluciones técnicas eficientes para clientes empresariales."
-  },
-  {
-    "position": "Content Marketing Specialist",
-    "company": "ContentCraft",
-    "location": "Dallas",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "freelance",
-    "createdAt": "2024-04-23T11:10:00Z",
-    "link": "https://www.contentcraft.com",
-    "type": "hibrido",
-    "note": "ContentCraft crea contenido estratégico para aumentar el compromiso del público."
-  },
-  {
-    "position": "Sales Operations Analyst",
-    "company": "SalesOps",
-    "location": "Boston",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T12:25:00Z",
-    "link": "https://www.salesops.com",
-    "type": "remoto",
-    "note": "SalesOps analiza datos para optimizar las operaciones de ventas."
-  },
-  {
-    "position": "UI Designer",
-    "company": "DesignGenie",
-    "location": "Seattle",
-    "status": "pendiente",
-    "mode": "parcial",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T13:40:00Z",
-    "link": "https://www.designgenie.com",
-    "type": "presencial",
-    "note": "DesignGenie crea interfaces de usuario intuitivas y atractivas."
-  },
-  {
-    "position": "Business Development Manager",
-    "company": "BizBoost",
-    "location": "Chicago",
-    "status": "pendiente",
-    "mode": "completa",
-    "contract": "indefinido",
-    "createdAt": "2024-04-23T14:55:00Z",
-    "link": "https://www.bizboost.com",
-    "type": "hibrido",
-    "note": "BizBoost impulsa el crecimiento empresarial a través de estrategias de desarrollo efectivas."
+    "note": "Supportive ofrece soporte técnico excepcional.",
+    "techs": [
+      "Customer Support Software",
+      "Troubleshooting",
+      "Ticketing Systems"
+    ]
   }
 ]

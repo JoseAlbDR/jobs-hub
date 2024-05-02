@@ -124,7 +124,7 @@ const JobDetail = ({ jobId }: { jobId: string }) => {
           </section>
           <section className="flex gap-2">
             <IconDeviceLaptop stroke={1} className="stroke-primary-accent" />{' '}
-            Tecnologías
+            Habilidades
           </section>
           <section className="section-custom flex flex-wrap gap-2">
             {data.techs.map((tech, index) => {
