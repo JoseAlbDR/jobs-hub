@@ -19,7 +19,8 @@ JobsHub es una aplicación para gestionar tus búsquedas de empleo de manera efi
 ## Instalación
 
 1. Clona este repositorio: `git clone https://github.com/tuusuario/jobshub.git`
-2. `cd jobshub`
+2. Muevete a la carpeta del proyecto 
+`cd jobshub`
 3. Instala las dependencias: `npm install`
 4. Configura las variables de entorno según sea necesario, utiliza los archivos .env.template y .env.local.template como base
    
