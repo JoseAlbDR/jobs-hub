@@ -19,7 +19,11 @@ import { CustomFormField, CustomFormSelect } from './FormComponents';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from './ui/use-toast';
 import { useRouter } from 'next/navigation';
-import { getSingleJobAction, updateJobAction } from '@/utils/actions';
+import {
+  getSingleJobAction,
+  getUniqueTechTags,
+  updateJobAction,
+} from '@/utils/actions';
 import { Badge } from './ui/badge';
 import { useEffect, useState } from 'react';
 import TechsInput from './TechsInput';
@@ -31,27 +35,32 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
   const [techs, setTechs] = useState<string[]>([]);
   const [date, setDate] = useState<Date>();
 
-  const { data } = useQuery({
+  const { data: job } = useQuery({
     queryKey: ['job', jobId],
     queryFn: () => getSingleJobAction(jobId),
   });
 
+  const { data: currentTechs } = useQuery({
+    queryKey: ['techs'],
+    queryFn: () => getUniqueTechTags(),
+  });
+
   useEffect(() => {
-    setTechs(data?.techs || []);
-  }, [data?.techs]);
+    setTechs(job?.techs || []);
+  }, [job?.techs]);
 
   const form = useForm<CreateAndEditJobType>({
     resolver: zodResolver(createAndEditJobSchema),
     defaultValues: {
-      position: data?.position || '',
-      company: data?.company || '',
-      location: data?.location || '',
-      link: data?.link || '',
-      status: (data?.status as JobStatus) || JobStatus.Pending,
-      mode: (data?.mode as JobMode) || JobMode.FullTime,
-      type: (data?.type as JobType) || JobType.Presential,
-      contract: (data?.contract as JobContract) || JobContract.Permanent,
-      note: data?.note || '',
+      position: job?.position || '',
+      company: job?.company || '',
+      location: job?.location || '',
+      link: job?.link || '',
+      status: (job?.status as JobStatus) || JobStatus.Pending,
+      mode: (job?.mode as JobMode) || JobMode.FullTime,
+      type: (job?.type as JobType) || JobType.Presential,
+      contract: (job?.contract as JobContract) || JobContract.Permanent,
+      note: job?.note || '',
     },
   });
 
@@ -115,7 +124,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
             {watchStatus === 'entrevista' && (
               <div className="flex flex-col">
                 <DatePicker date={date} setDate={setDate} />
-                <GoogleCalendarLink date={date} job={data!} />
+                <GoogleCalendarLink date={date} job={job!} />
               </div>
             )}
           </section>
@@ -144,7 +153,7 @@ const EditJobForm = ({ jobId }: { jobId: string }) => {
             <TechsInput
               techs={techs}
               setTechs={setTechs}
-              currentTechs={data?.techs || []}
+              currentTechs={currentTechs || []}
             />
           </section>
 

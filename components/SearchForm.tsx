@@ -35,8 +35,6 @@ const SearchForm = () => {
     queryKey: ['techs'],
   });
 
-  console.log({ error });
-
   useErrorNotification({
     isError,
     title: 'Error cargando tecnologias',
