@@ -66,72 +66,73 @@ const TechsInput = ({
     <div className="flex flex-col gap-3 items-start justify-center w-full ">
       <FormLabel>Tecnologías</FormLabel>
       <div className="flex flex-col sm:flex-row gap-5 justify-between flex-wrap  w-full">
-        <div className='flex gap-2 items-baseline justify-start '>
-        <Popover open={open} onOpenChange={setOpen}>
-          <PopoverTrigger asChild>
-            <Button
-              variant="outline"
-              role="combobox"
-              aria-expanded={open}
-              className="w-[200px] justify-between"
-            >
-              {tech
-                ? currentTechs.find((curr) => curr === tech)
-                : `${
-                    type === 'create' ? 'Añade tecnología' : 'Busca tecnología'
-                  }`}
-              <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <Command>
-              {type === 'create' ? (
-                <CommandInput
-                  placeholder="Añade Tecnología"
-                  onChangeCapture={(e) => setTech(e.currentTarget.value)}
-                />
-              ) : (
-                <CommandInput placeholder="Busca Tecnología" />
-              )}
+        <div className="flex gap-2 items-baseline justify-start ">
+          <Popover open={open} onOpenChange={setOpen}>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                role="combobox"
+                aria-expanded={open}
+                className="w-[200px] justify-between"
+              >
+                {tech
+                  ? currentTechs.find((curr) => curr === tech)
+                  : `${
+                      type === 'create'
+                        ? 'Añade tecnología'
+                        : 'Busca tecnología'
+                    }`}
+                <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <Command>
+                {type === 'create' ? (
+                  <CommandInput
+                    placeholder="Añade Habilidad"
+                    onChangeCapture={(e) => setTech(e.currentTarget.value)}
+                  />
+                ) : (
+                  <CommandInput placeholder="Busca Habilidad" />
+                )}
 
-              <CommandList>
-                <CommandGroup>
-                  {currentTechs.map((curr) => {
-                    return (
-                      <CommandItem
-                        key={curr}
-                        value={curr}
-                        onSelect={(currentValue: string) => {
-                          setTech(currentValue === tech ? '' : currentValue);
-                          setOpen(false);
-                        }}
-                      >
-                        <Check
-                          className={cn(
-                            'mr-2 h-4 w-4 text-white',
-                            tech === curr ? 'opacity-100' : 'opacity-0'
-                          )}
-                        />
-                        {curr}
-                      </CommandItem>
-                    );
-                  })}
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </PopoverContent>
-        </Popover>
-       
-        <Button onClick={handleAddTech} type="button" className="btn-custom">
-          <IconCodePlus stroke={1} />
-        </Button>
+                <CommandList>
+                  <CommandGroup>
+                    {currentTechs.map((curr) => {
+                      return (
+                        <CommandItem
+                          key={curr}
+                          value={curr}
+                          onSelect={(currentValue: string) => {
+                            setTech(currentValue === tech ? '' : currentValue);
+                            setOpen(false);
+                          }}
+                        >
+                          <Check
+                            className={cn(
+                              'mr-2 h-4 w-4 text-white',
+                              tech === curr ? 'opacity-100' : 'opacity-0'
+                            )}
+                          />
+                          {curr}
+                        </CommandItem>
+                      );
+                    })}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
+
+          <Button onClick={handleAddTech} type="button" className="btn-custom">
+            <IconCodePlus stroke={1} />
+          </Button>
         </div>
         <div className="flex flex-wrap gap-4">
           {techs.map((tech, index) => (
             <Badge
               onClick={() => handleDeleteTech(tech)}
               variant={'canDeleted'}
-              
               key={`${tech}-${index}`}
             >
               <TooltipProvider delayDuration={0}>

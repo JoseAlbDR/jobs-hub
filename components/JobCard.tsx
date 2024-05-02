@@ -57,54 +57,55 @@ const JobCard = ({ job }: { job: JobData }) => {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="flex gap-2 flex-col flex-1 justify-end">
-        <section>
-          {job?.note && (
+      <CardContent className="flex gap-2 flex-col flex-1 justify-between">
+        <div className="flex gap-2 flex-col flex-1">
+          <section>
+            {job?.note && (
+              <JobInfo
+                icon={
+                  <IconFileDescription
+                    stroke={1}
+                    className="stroke-primary-accent"
+                  />
+                }
+                text={job.note}
+                truncate
+              />
+            )}
+          </section>
+          <section className="flex justify-between">
             <JobInfo
               icon={
-                <IconFileDescription
+                <IconClockHour2 stroke={1} className="stroke-primary-accent" />
+              }
+              text={job.mode}
+            />
+            <JobInfo
+              icon={
+                <IconFileCertificate
                   stroke={1}
                   className="stroke-primary-accent"
                 />
               }
-              text={job.note}
-              truncate
+              text={job.contract}
             />
-          )}
-        </section>
-        <section className="flex justify-between">
-          <JobInfo
-            icon={
-              <IconClockHour2 stroke={1} className="stroke-primary-accent" />
-            }
-            text={job.mode}
-          />
-          <JobInfo
-            icon={
-              <IconFileCertificate
-                stroke={1}
-                className="stroke-primary-accent"
-              />
-            }
-            text={job.contract}
-          />
-        </section>
-        <section className="flex justify-stretch">
-          <JobInfo
-            icon={
-              <IconBuildingSkyscraper
-                stroke={1}
-                className="stroke-primary-accent"
-              />
-            }
-            text={job.type}
-          />
-          <JobInfo
-            icon={<MapPin className="stroke-primary-accent stroke-1" />}
-            text={job.location}
-          />
-        </section>
-
+          </section>
+          <section className="flex justify-stretch">
+            <JobInfo
+              icon={
+                <IconBuildingSkyscraper
+                  stroke={1}
+                  className="stroke-primary-accent"
+                />
+              }
+              text={job.type}
+            />
+            <JobInfo
+              icon={<MapPin className="stroke-primary-accent stroke-1" />}
+              text={job.location}
+            />
+          </section>
+        </div>
         <section className="flex flex-wrap gap-2">
           {job.techs.map((tech, index) => {
             return (
