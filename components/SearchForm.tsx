@@ -35,11 +35,11 @@ const SearchForm = () => {
     queryKey: ['techs'],
   });
 
-  useErrorNotification({
-    isError,
-    title: 'Error cargando tecnologias',
-    description: error?.message || 'Error desconocido',
-  });
+  // useErrorNotification({
+  //   isError,
+  //   title: 'Error cargando tecnologias',
+  //   description: error?.message || 'Error desconocido',
+  // });
 
   const form = useForm<SearchFormType>({
     resolver: zodResolver(searchFormSchema),
