@@ -49,7 +49,7 @@ const TechsInput = ({
 
     if (techs.length >= 6)
       return toast({
-        description: 'No se pueden añadir más de 6 tecnologías',
+        description: 'No se pueden añadir más de 6 habilidades',
         variant: 'destructive',
       });
 
@@ -64,7 +64,7 @@ const TechsInput = ({
 
   return (
     <div className="flex flex-col gap-3 items-start justify-center w-full ">
-      <FormLabel>Tecnologías</FormLabel>
+      <FormLabel>Habilidades</FormLabel>
       <div className="flex flex-col sm:flex-row gap-5 justify-between flex-wrap  w-full">
         <div className="flex gap-2 items-baseline justify-start ">
           <Popover open={open} onOpenChange={setOpen}>
@@ -78,9 +78,7 @@ const TechsInput = ({
                 {tech
                   ? currentTechs.find((curr) => curr === tech)
                   : `${
-                      type === 'create'
-                        ? 'Añade tecnología'
-                        : 'Busca tecnología'
+                      type === 'create' ? 'Añade habilidad' : 'Busca habilidad'
                     }`}
                 <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
