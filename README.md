@@ -1,40 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JobsHub
 
-## Getting Started
+JobsHub es una aplicación para gestionar tus búsquedas de empleo de manera eficiente. Puedes registrar tus aplicaciones, hacer un seguimiento de su estado y obtener estadísticas útiles sobre tu progreso en la búsqueda de empleo.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Gestión de empleos:** Registra los detalles de tus aplicaciones de trabajo, incluyendo el puesto, la empresa, la ubicación, el estado y más.
+- **Estadísticas:** Obtén información visual sobre el estado de tus aplicaciones de trabajo, incluyendo el número de aplicaciones pendientes, en proceso de entrevista y rechazadas.
+- **Filtros y búsqueda:** Filtra y busca entre tus aplicaciones de trabajo según diferentes criterios, como estado, tipo de contrato y modo de trabajo.
+- **Integración con Google Calendar:** Crea enlaces de Google Calendar directamente desde la aplicación para programar entrevistas y seguimientos.
+
+## Tecnologías Utilizadas
+
+- **Frontend:** React.js, Next.js, Tailwind CSS
+- **Backend:** Prisma, PostgreSQL
+- **Otros:** TypeScript, Zod, Day.js
+
+
+## Instalación
+
+1. Clona este repositorio: `git clone https://github.com/tuusuario/jobshub.git`
+2. Muevete a la carpeta del proyecto 
+`cd jobshub`
+3. Instala las dependencias: `npm install`
+4. Configura las variables de entorno según sea necesario, utiliza los archivos .env.template y .env.local.template como base
+   
 ```
+#.env
+DATABASE_URL=<database url>
+DIRECT_URL=<direct database url>
+```
+```
+#.env.local
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<clerk publisable key>
+CLERK_SECRET_KEY=<clerk secret key>
+```
+5. Migra el schema de prisma a la base de datos proporcionada
+`npx prisma migrate dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Arranca la aplicacion el desarrollo
+`npm run dev`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contribuir
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+¡Contribuciones son bienvenidas! Si encuentras algún error o tienes sugerencias de mejoras, por favor abre un issue o envía un pull request.
 
-## Learn More
+## Licencia
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## database diagram
-
-https://dbdiagram.io/d/6624042303593b6b61836c69
+Este proyecto está bajo la licencia MIT. Para más detalles, ver el archivo LICENSE.
