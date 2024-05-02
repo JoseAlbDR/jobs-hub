@@ -14,7 +14,8 @@
       "Social Media Management",
       "Public Relations",
       "Content Marketing"
-    ]
+    ],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Project Coordinator",
@@ -27,7 +28,8 @@
     "link": "https://www.projectpro.com",
     "type": "hibrido",
     "note": "ProjectPro coordina proyectos de manera eficiente.",
-    "techs": ["Project Management", "Agile Methodologies", "Task Tracking"]
+    "techs": ["Project Management", "Agile Methodologies", "Task Tracking"],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Technical Writer",
@@ -40,7 +42,8 @@
     "link": "https://www.techtales.com",
     "type": "presencial",
     "note": "TechTales simplifica la documentación técnica.",
-    "techs": ["Technical Writing", "Documentation Tools", "Editing"]
+    "techs": ["Technical Writing", "Documentation Tools", "Editing"],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Product Designer",
@@ -53,7 +56,8 @@
     "link": "https://www.productpro.com",
     "type": "remoto",
     "note": "ProductPro crea productos centrados en el usuario.",
-    "techs": ["UI/UX Design", "Prototyping Tools", "User Research"]
+    "techs": ["UI/UX Design", "Prototyping Tools", "User Research"],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Customer Experience Manager",
@@ -70,7 +74,8 @@
       "Customer Relationship Management",
       "Customer Feedback Analysis",
       "User Experience Optimization"
-    ]
+    ],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Financial Advisor",
@@ -87,7 +92,8 @@
       "Financial Planning Software",
       "Investment Analysis",
       "Risk Management"
-    ]
+    ],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "HR Generalist",
@@ -104,7 +110,8 @@
       "Human Resource Information Systems",
       "Recruitment Strategies",
       "Employee Relations"
-    ]
+    ],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Marketing Coordinator",
@@ -117,7 +124,8 @@
     "link": "https://www.marketmaster.com",
     "type": "hibrido",
     "note": "MarketMaster implementa estrategias de marketing innovadoras.",
-    "techs": ["Digital Marketing", "Marketing Analytics", "Content Strategy"]
+    "techs": ["Digital Marketing", "Marketing Analytics", "Content Strategy"],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Sales Analyst",
@@ -130,7 +138,8 @@
     "link": "https://www.salessavvy.com",
     "type": "presencial",
     "note": "SalesSavvy analiza datos para impulsar las ventas.",
-    "techs": ["Salesforce", "Data Visualization", "Sales Forecasting"]
+    "techs": ["Salesforce", "Data Visualization", "Sales Forecasting"],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Logistics Coordinator",
@@ -147,7 +156,8 @@
       "Supply Chain Management Software",
       "Inventory Optimization",
       "Route Planning"
-    ]
+    ],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "IT Consultant",
@@ -164,7 +174,8 @@
       "IT Infrastructure Management",
       "Cloud Computing",
       "Cybersecurity"
-    ]
+    ],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Research Assistant",
@@ -177,7 +188,8 @@
     "link": "https://www.researchrise.com",
     "type": "presencial",
     "note": "ResearchRise impulsa la investigación innovadora.",
-    "techs": ["Research Methodologies", "Data Analysis", "Literature Review"]
+    "techs": ["Research Methodologies", "Data Analysis", "Literature Review"],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Legal Assistant",
@@ -194,7 +206,8 @@
       "Legal Research",
       "Document Management",
       "Case Management Systems"
-    ]
+    ],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   },
   {
     "position": "Customer Support Specialist",
@@ -211,6 +224,7 @@
       "Customer Support Software",
       "Troubleshooting",
       "Ticketing Systems"
-    ]
+    ],
+    "userId": "user_2fuBD76En5Irh6Q0QsVjM4VhANG"
   }
 ]
