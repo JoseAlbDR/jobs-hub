@@ -86,6 +86,7 @@ jobshub/
 └── README.md
 
 
+
 ## Instalación
 
 1. Clona este repositorio: `git clone https://github.com/tuusuario/jobshub.git`
