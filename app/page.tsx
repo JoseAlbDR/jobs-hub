@@ -41,13 +41,14 @@ export default function Home() {
           />
         </article>
       </section>
-      <section>
+      <section className="flex flex-col items-center justify-center gap-4">
         <Button
           asChild
           className={`self-end capitalize bg-primary-accent font-sans gap-2 text-black mt-5 w-56 h-16 text-3xl font-bold rounded-lg`}
         >
           <Link href="jobs">Empezar</Link>
         </Button>
+        <Link href="/privacy">Politica de Privacidad</Link>
       </section>
     </main>
   );
